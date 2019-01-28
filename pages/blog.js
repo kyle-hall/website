@@ -1,22 +1,23 @@
 
 import Link from 'next/link'
+import Head from 'next/head'
+
+import BlogLayout from '../components/BlogLayout'
 
 const BlogIndex = props => (
-  <div style={containerStyle}>
-    <div style={{maxWidth: 900, marginTop: 0, marginBottom: 0, marginRight: 'auto', marginLeft: 'auto'}}>
-      <h1>Blog Posts</h1>
-      <Link href="/posts/tdd-data-structures-part-one">
-        <a>My First Post - 2019-01-27</a>
-      </Link>
-    </div>
+  <div>
+    <Head>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat|Sarabun" rel="stylesheet" />
+    </Head>
+    <BlogLayout>
+      <h1 style={{textAlign: 'center', fontFamily: ['Montserrat', 'sans-serif'], fontSize: 48, paddingLeft: 0}}>Blog Posts</h1>
+      <div className="article-listing" style={{marginTop: 50}}>
+        <Link href="/posts/tdd-data-structures-part-one">
+          <a style={{fontFamily: ['Sarabun', 'sans-serif']}}>My First Post - 2019-01-27</a>
+        </Link>
+      </div>
+    </BlogLayout>
   </div>
 )
 
 export default BlogIndex
-
-const containerStyle = {
-  width: '100vw',
-  display: 'flex',
-  justifyContent: 'center',
-  fontFamily: 'Monteserrat'
-}

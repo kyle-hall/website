@@ -7,6 +7,7 @@ export default () => (
     <Head>
       <link rel="stylesheet" href="/static/base.css" />
       <link rel="stylesheet" href="/static/styles.css" />
+      <link href="https://fonts.googleapis.com/css?family=Montserrat|Sarabun" rel="stylesheet">
     </Head>
     <header>
       <h1>Kyle Hall</h1>
