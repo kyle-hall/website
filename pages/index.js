@@ -1,16 +1,22 @@
 
-import "../styles/styles.css"
+import Head from 'next/head'
 import Link from 'next/link'
 
 export default () => (
-  <header>
-    <h1>Kyle Hall</h1>
-    <h4>Software Developer</h4>
+  <div>
+    <Head>
+      <link rel="stylesheet" href="/static/base.css" />
+      <link rel="stylesheet" href="/static/styles.css" />
+    </Head>
+    <header>
+      <h1>Kyle Hall</h1>
+      <h4>Software Developer</h4>
 
-    <nav>
-      <Link href="/about"><a>About</a></Link>
-      <Link href="/blog"><a>Blog</a></Link>
-      <Link href="/resume"><a>Resume</a></Link>
-    </nav>
-  </header>
+      <nav>
+        <Link href="/about"><a>About</a></Link>
+        <Link href="/blog"><a>Blog</a></Link>
+        <Link href="/resume"><a>Resume</a></Link>
+      </nav>
+    </header>
+  </div>
 )
