@@ -12,7 +12,7 @@ const BlogIndex = props => (
     <BlogLayout>
       <h1 style={{textAlign: 'center', fontFamily: ['Montserrat', 'sans-serif'], fontSize: 48, paddingLeft: 0}}>Blog Posts</h1>
       <div className="article-listing" style={{marginTop: 50}}>
-        <Link href="/posts/tdd-data-structures-part-one">
+        <Link href="/posts/tdd-bst-with-kotlin-part-one">
           <a style={{fontFamily: ['Sarabun', 'sans-serif']}}>My First Post - 2019-01-27</a>
         </Link>
       </div>
