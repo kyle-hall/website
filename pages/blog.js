@@ -13,7 +13,7 @@ const BlogIndex = props => (
       <h1 style={{textAlign: 'center', fontFamily: ['Montserrat', 'sans-serif'], fontSize: 48, paddingLeft: 0}}>Blog Posts</h1>
       <div className="article-listing" style={{marginTop: 50}}>
         <Link href="/posts/tdd-bst-with-kotlin-part-one">
-          <a style={{fontFamily: ['Sarabun', 'sans-serif']}}>My First Post - 2019-01-27</a>
+          <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27</a>
         </Link>
       </div>
     </BlogLayout>
@@ -21,3 +21,7 @@ const BlogIndex = props => (
 )
 
 export default BlogIndex
+
+const titleStyle = {
+  fontSize: 24
+}
