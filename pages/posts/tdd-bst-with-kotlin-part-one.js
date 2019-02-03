@@ -7,11 +7,15 @@ const Post = props => (
         Test-Driven BST with Kotlin, Part 1
       </h1>
       <article>
-        // I feel like there needs to be some sort of introduction here.
+        <p style={contentStyle}>
+          Hi, and welcome to my first post on my new blog. Today, we'll be
+          covering test-driven development and some computer science all using
+          the Kotlin programming language. I don't have a comment section
+          figured out, yet, so for now, if you have feedback please contact me
+          via <a href="https://twitter.com/khalligans47">Twitter</a>.
+        </p>
         <section>
-          <h2 style={headerStyles}>
-            Quick TDD Crash Course
-          </h2>
+          <h2 style={headerStyles}>Quick TDD Crash Course</h2>
           <p style={contentStyle}>
             Alright, for those who don't know, or maybe need a refresher,
             test-driven development is a process for writing better code by
@@ -83,9 +87,9 @@ const Post = props => (
             set up our project. Now, I like the JVM, and Gradle, so I'll do a
             separate article explaining more about creating new Gradle-based
             projects in the future. But, that's outside the scope of this
-            article, so, for now, here's the <span style={insetStyle}>build.gradle</span> file
-            you'll need to get started with this project, in case you'd like to
-            code along with me.
+            article, so, for now, here's the{" "}
+            <span style={insetStyle}>build.gradle</span> file you'll need to get
+            started with this project, in case you'd like to code along with me.
             <pre style={codeSampleStyling}>
               {`buildscript {
     ext.kotlin_version = '1.2.61'
@@ -144,9 +148,9 @@ check.dependsOn jacocoTestReport
           </p>
 
           <p style={contentStyle}>
-            Okay, so, to get started, put that build.gradle file at the root of
-            your project directory. Then, create a series of nested directories
-            that should end up looking like this:
+            Okay, so, to finish the setup, put that build.gradle file at the
+            root of your project directory. Then, create a series of nested
+            directories that should end up looking like this:
             <pre style={codeSampleStyling}>
               {`/binary-search-tree
   src/
@@ -159,6 +163,10 @@ check.dependsOn jacocoTestReport
 `}
             </pre>
           </p>
+          <p style={contentStyle}>
+            And that's it for Part One! Join me in part two where we'll write
+            our first test and start insert values into our tree.
+          </p>
         </section>
       </article>
     </div>
@@ -169,21 +177,22 @@ export default Post;
 
 const headerStyles = {
   fontFamily: ["Montserrat", "sans-serif"],
-  marginTop: '1em',
-  paddingTop: '1em'
-}
+  marginTop: "1em",
+  paddingTop: "1em"
+};
 
 const contentStyle = {
   fontFamily: ["Sarabun", "sans-serif"]
-}
+};
 
 const containerStyle = {
   lineHeight: 1.5,
-  color: '#333',
-}
+  color: "#333",
+  paddingBottom: "1em"
+};
 
 const codeSampleStyling = {
-  backgroundColor: '#EEE',
+  backgroundColor: "#EEE",
   paddingLeft: 15,
   paddingTop: 20,
   paddingBottom: 20,
@@ -192,8 +201,8 @@ const codeSampleStyling = {
 };
 
 const insetStyle = {
-  backgroundColor: '#EEE',
+  backgroundColor: "#EEE",
   padding: 2,
   fontFamily: ["Courier New", "sans-serif"],
   borderRadius: 3
-}
+};
