@@ -1,7 +1,10 @@
 
+import Footer from './Footer'
+
 const BlogLayout = props => (
   <div style={containerStyles}>
     {props.children}
+    <Footer></Footer>
   </div>
 )
 
