@@ -39,7 +39,7 @@ const Post = props => (
             test go green, you know your code actually works because the tests
             failed before you wrote it and passes aftewards.
           </p>
-          <p>
+          <p style={contentStyle}>
             For me, this whole process boosts my developer happiness, as well. If I start with a failing
             test, I get to start with something that is broken. Writing the code
             that makes the tests all go green feels good because I fixed the
