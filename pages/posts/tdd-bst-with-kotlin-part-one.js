@@ -4,7 +4,7 @@ const Post = props => (
   <BlogLayout>
     <div style={containerStyle}>
       <h1 style={{ fontFamily: ["Montserrat", "sans-serif"], fontSize: "3vw" }}>
-        Test-Driven BST with Kotlin, Part 1
+        Test-Driven Binary Search Tree with Kotlin, Part 1
       </h1>
       <article>
         <p style={contentStyle}>
@@ -15,7 +15,7 @@ const Post = props => (
           via <a href="https://twitter.com/khalligans47">Twitter</a>.
         </p>
         <section>
-          <h2 style={headerStyles}>Quick TDD Crash Course</h2>
+          <h2 style={headerStyles}>Quick Test-Driven Development (TDD) Crash Course</h2>
           <p style={contentStyle}>
             Alright, for those who don't know, or maybe need a refresher,
             test-driven development is a process for writing better code by
@@ -37,8 +37,10 @@ const Post = props => (
             to start and a clear goal in mind: "I need to fix this thing and
             make the test pass." Then, when make your code changes and see the
             test go green, you know your code actually works because the tests
-            failed before you wrote it and passes aftewards. And for me, this
-            boosts my developer happiness, as well. If I start with a failing
+            failed before you wrote it and passes aftewards.
+          </p>
+          <p>
+            For me, this whole process boosts my developer happiness, as well. If I start with a failing
             test, I get to start with something that is broken. Writing the code
             that makes the tests all go green feels good because I fixed the
             broken thing.
