@@ -10,8 +10,8 @@ const BlogIndex = props => (
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Sarabun" rel="stylesheet" />
     </Head>
     <BlogLayout>
-      <h1 style={{textAlign: 'center', fontFamily: ['Montserrat', 'sans-serif'], fontSize: 48, paddingLeft: 0}}>Blog Posts</h1>
-      <div className="article-listing" style={{marginTop: 50}}>
+      <h1 style={headerStyle}>Blog Posts</h1>
+      <div style={articleListing}>
         <Link href="/posts/tdd-bst-with-kotlin-part-one">
           <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27</a>
         </Link>
@@ -24,4 +24,17 @@ export default BlogIndex
 
 const titleStyle = {
   fontSize: 24
+}
+
+const headerStyle = {
+  textAlign: 'center',
+  fontFamily: ['Montserrat', 'sans-serif'],
+  fontSize: 48,
+  paddingLeft: 0
+}
+
+const articleListing = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: 75
 }
