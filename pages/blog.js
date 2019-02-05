@@ -15,6 +15,9 @@ const BlogIndex = props => (
         <Link href="/posts/tdd-bst-with-kotlin-part-one">
           <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27</a>
         </Link>
+        <Link href="/posts/gradle-show-test-output">
+          <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>How to get Gradle to Show Test Output</span> - 2019-01-27</a>
+        </Link>
       </div>
     </BlogLayout>
   </div>
