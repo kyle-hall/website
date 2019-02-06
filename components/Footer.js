@@ -1,34 +1,31 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const Footer = props => (
   <footer style={footerStyle}>
     <hr />
     <div style={linkContainerStyles}>
-      <Link href="https://twitter.com/khalligans47">
+      <Link href='https://twitter.com/khalligans47'>
         <a style={linkStyles}>
-          <img src="/static/images/twitter.svg" alt="black and white Twitter logo" />
+          <img src='/static/images/twitter.svg' alt='black and white Twitter logo' />
         </a>
       </Link>
-      <Link href="https://github.com/kyle-hall">
+      <Link href='https://github.com/kyle-hall'>
         <a style={linkStyles}>
-          <img
-            src="/static/images/github.svg"
-            alt="black and white GitHub logo"
-          />
+          <img src='/static/images/github.svg' alt='black and white GitHub logo' />
         </a>
       </Link>
     </div>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer
 
 const footerStyle = {
   width: '50%',
   height: 200,
   margin: '0 auto',
   paddingTop: 100
-};
+}
 
 const linkContainerStyles = {
   height: 200,
@@ -40,6 +37,6 @@ const linkContainerStyles = {
 const linkStyles = {
   display: 'flex',
   justifyContent: 'center',
-  width: 100,
-  height: 100
+  width: 75,
+  height: 75
 }
