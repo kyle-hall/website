@@ -21,7 +21,7 @@ const Footer = props => (
 export default Footer
 
 const footerStyle = {
-  width: '50%',
+  width: '75%',
   height: 200,
   margin: '0 auto',
   paddingTop: 100
