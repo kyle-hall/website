@@ -10,11 +10,18 @@ const BlogIndex = props => (
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Sarabun" rel="stylesheet" />
     </Head>
     <BlogLayout>
-      <h1 style={headerStyle}>Blog Posts</h1>
+      <h1 style={headerStyle}>Posts</h1>
       <div style={articleListing}>
-        <Link href="/posts/tdd-bst-with-kotlin-part-one">
-          <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27</a>
-        </Link>
+        <div style={articleStyle}>
+          <Link href="/posts/gradle-show-test-output">
+            <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>Gradle Test Output and Coverage Tools</span> - 2019-02-05</a>
+          </Link>
+        </div>
+        <div style={articleStyle}>
+          <Link href="/posts/tdd-bst-with-kotlin-part-one">
+            <a style={{fontFamily: ['Sarabun', 'sans-serif']}}><span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27</a>
+          </Link>
+        </div>
       </div>
     </BlogLayout>
   </div>
@@ -26,15 +33,20 @@ const titleStyle = {
   fontSize: 24
 }
 
+const articleStyle = {
+  marginBottom: 30
+}
+
 const headerStyle = {
   textAlign: 'center',
   fontFamily: ['Montserrat', 'sans-serif'],
   fontSize: 48,
-  paddingLeft: 0
+  paddingTop: 80
 }
 
 const articleListing = {
   display: 'flex',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
   marginTop: 75
 }
