@@ -16,20 +16,20 @@ const Post = props => (
         <section>
           <h2 style={blogStyles.headerStyles}>A Little Background</h2>
           <p style={blogStyles.contentStyle}>
-            I started off programming with Java. I used it for school, and writing Java was my first
-            job out of college. So, for better or worse, I'm a fan of the JVM and its many powerful
-            languages. I recently switched from Scala to Kotlin - more to come on that later - and I
-            wanted to use Gradle as my build tool. Now, being a good little developer, I wanted to
-            set up testing and continuous integration on my projects to ensure I was writing the
-            best quality code I could.
+            I started off programming with Java. I learned it in school, and wrote a lot of it for
+            my first job out of school. So, for better or worse, I'm a fan of the JVM and its many
+            powerful languages. I recently switched from Scala to Kotlin - more to come on that
+            later - and I wanted to use Gradle as my build tool. Now, being a good little developer,
+            I wanted to set up testing and continuous integration on my projects to ensure I was
+            writing the best quality code I could.
           </p>
           <p style={blogStyles.contentStyle}>
             So, with this goal in mind, I searched around for a test coverage tool, and finally
             settled on <a href='https://www.eclemma.org/jacoco/'>JaCoCo</a>. It looked like a
             well-used option, and I didn't want to spend too much time on picking a tool when I was
             really just interested in generating the reports for my simple project. After some work,
-            I got the necessary configuration added to my gradle file to generate an HTML report of
-            my coverage from Jacoco. Success! I patted myself on the back for being a good little
+            I got the necessary configuration added to my Gradle file to generate an HTML report of
+            my coverage from JaCoCo. Success! I patted myself on the back for being a good little
             developer. And this led me into a very frustrating three or four months.
           </p>
         </section>
@@ -57,12 +57,12 @@ const Post = props => (
             tests in the terminal?" There were a few common suggestions:
           </p>
           <ul style={blogStyles.contentStyle}>
-            <li>
+            <li style={listStyles}>
               Run <span>gradle test -i</span> instead of <span>gradle test</span>. This didn't work
               for me. All I got was a list of all the tasks Gradle ran to execute my tests. This was
               enlightening, but didn't solve my problem.
             </li>
-            <li>
+            <li style={listStyles}>
               Add the following to your <span>build.gradle</span>:
               <pre style={blogStyles.codeSampleStyling}>{`test {
     testLogging {
@@ -74,7 +74,7 @@ const Post = props => (
               (Spoiler Alert: This is, mostly, the right thing to do. It's just that something else
               is wrong.)
             </li>
-            <li>
+            <li style={listStyles}>
               A Gradle plugin called "Gradle Test Logger Plugin". Now, because I just figured out
               what was wrong with my setup, this might actually work. I haven't tried it again. But,
               at the time, it looked like another dead end.
@@ -143,3 +143,7 @@ const Post = props => (
 )
 
 export default Post
+
+const listStyles = {
+  marginBottom: 15
+}
