@@ -12,8 +12,7 @@ const About = _ => (
         worked with React, Vue, and a little bit of Angular, and I prefer React right now. I've also
         done some mobile development using React-Native. Right now, I'm passionate about mastering
         the programming of anything you could see in a browser. Mostly that means I'm trying to get
-        better at CSS and HTML. CSS Grid, typography, color, SVG, animation, and responsive design
-        are the main skills I'm trying to improve in this area.
+        better at CSS and HTML. Thanks for your interest in my blog.
       </p>
     </div>
   </BlogLayout>
