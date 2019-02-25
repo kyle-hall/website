@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 import BlogLayout from '../components/BlogLayout'
+import ArticleListItem from '../components/ArticleListItem'
 
 const BlogIndex = props => (
   <div>
@@ -11,34 +12,27 @@ const BlogIndex = props => (
     <BlogLayout>
       <h1 style={headerStyle}>Posts</h1>
       <div style={articleListing}>
-        <div style={articleStyle}>
-          <Link href='/posts/gradle-show-test-output'>
-            <a style={{ fontFamily: ['Sarabun', 'sans-serif'] }}>
-              <span style={titleStyle}>Gradle Test Output and Coverage Tools</span> - 2019-02-05
-            </a>
-          </Link>
-        </div>
-        <div style={articleStyle}>
-          <Link href='/posts/tdd-bst-with-kotlin-part-one'>
-            <a style={{ fontFamily: ['Sarabun', 'sans-serif'] }}>
-              <span style={titleStyle}>TDD a BST with Kotlin</span> - 2019-01-27
-            </a>
-          </Link>
-        </div>
+        <ArticleListItem
+          title='Deploying Static Sites with Next.js and Netlify'
+          date='2019-02-25'
+          link='/posts/deploy-static-site-with-next-and-netlify'
+        />
+        <ArticleListItem
+          title='Gradle Test Output and Coverage Tools'
+          date='2019-02-05'
+          link='/posts/gradle-show-test-output'
+        />
+        <ArticleListItem
+          title='TDD a BST with Kotlin'
+          date='2019-01-27'
+          link='/posts/tdd-bst-with-kotlin-part-one'
+        />
       </div>
     </BlogLayout>
   </div>
 )
 
 export default BlogIndex
-
-const titleStyle = {
-  fontSize: 24
-}
-
-const articleStyle = {
-  marginBottom: 30
-}
 
 const headerStyle = {
   textAlign: 'center',
