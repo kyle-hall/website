@@ -66,13 +66,12 @@ const Post = props => (
             site generator does exactly that. It ususally provides some kind of templating engine to
             build pieces of your website that it can smash together when it builds your site.
           </p>
-          <p stye={blogStyles.contentStyle}>
+          <p style={blogStyles.contentStyle}>
             Hold on now, I hear you say, I thought you said we were making something without any
             templates and that it didn't need to be built. And I did, sort of. The WordPress example
             I gave before did use templates like a static site generator does, true. The difference
             lies in when those templates are used. WordPress builds out a page on request. Each time
-            a user visits{' '}
-            <pre style={blogStyles.codeSampleStyling}>{`myawesomewebsite.com/posts`}</pre>, the
+            a user visits <span style={blogStyles.insetStyle}>myawesomewebsite.com/</span>, the
             server builds that page. Caching can come into play with that, but the first request to
             the server still smooshes the template and the data together. The static site has
             already been built by the time a user is requesting it. The templates the site author
