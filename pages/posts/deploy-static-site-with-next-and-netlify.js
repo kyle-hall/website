@@ -58,6 +58,26 @@ const Post = props => (
             defaults and set-up to help you get started creating React apps quickly. It also has the
             option to export that app as a static site, which is what we'll be doing.
           </p>
+          <p style={blogStyles.contentStyle}>
+            This makes Next.js a static site generator. That means it provides some tooling around
+            building a website that is easier and more efficient than writing all of our HTML files
+            by hand. For websites that contain the same kind of content in multiple places - a blog
+            with many posts, for example - it would be nice if we could template that out. A static
+            site generator does exactly that. It ususally provides some kind of templating engine to
+            build pieces of your website that it can smash together when it builds your site.
+          </p>
+          <p stye={blogStyles.contentStyle}>
+            Hold on now, I hear you say, I thought you said we were making something without any
+            templates and that it didn't need to be built. And I did, sort of. The WordPress example
+            I gave before did use templates like a static site generator does, true. The difference
+            lies in when those templates are used. WordPress builds out a page on request. Each time
+            a user visits{' '}
+            <pre style={blogStyles.codeSampleStyling}>{`myawesomewebsite.com/posts`}</pre>, the
+            server builds that page. Caching can come into play with that, but the first request to
+            the server still smooshes the template and the data together. The static site has
+            already been built by the time a user is requesting it. The templates the site author
+            used are conveniences, but the content is all just HTML and CSS.
+          </p>
           <h3 style={blogStyles.headerStyles}>What is Netlify?</h3>
           <p style={blogStyles.contentStyle}>
             <a href='https://netlify.com/'>Netlify</a> is an absolute gem of a web host. You'll get
@@ -74,6 +94,43 @@ const Post = props => (
             I love it. So, check them out for any gaps I leave here.
           </p>
           <p style={blogStyles.contentStyle}>So, for the quickest of quickstarts:</p>
+          <ul>
+            <li>
+              Create a new directory your machine:{' '}
+              <pre style={blogStyles.codeSampleStyling}>{`> mkdir hello-nextjs`}</pre>
+            </li>
+            <li>
+              Set it up as a JavaScript package:
+              <pre style={blogStyles.codeSampleStyling}>{`> cd hello-nextjs
+> yarn init -y
+`}</pre>
+            </li>
+            <li>
+              Install next, react, and react-dom:
+              <pre style={blogStyles.codeSampleStyling}>{`> yarn add react react-dom next`}</pre>
+            </li>
+            <li>
+              Add an index page:
+              <pre style={blogStyles.codeSampleStyling}>{`> mkdir pages
+> touch pages/index.js
+`}</pre>
+            </li>
+            Add these contents to pages/index.js:
+            <pre
+              style={blogStyles.codeSampleStyling}
+            >{`const Index = props => <h1>Hello, Next.js!</h1>
+
+export default Index
+`}</pre>
+            <li>
+              Run next to serve that website!
+              <pre style={blogStyles.codeSampleStyling}>{`> ./node_modules/.bin/next`}</pre>
+            </li>
+          </ul>
+          <p style={blogStyles.contentStyle}>
+            That does feel like a lot - for a quickstart - but it gets us to a point where we can
+            deploy. So, push that code up to a git repository, and let's go to Netlify!
+          </p>
         </section>
         <section>
           <h2 style={blogStyles.headerStyles}>Deploying with Netlify</h2>
