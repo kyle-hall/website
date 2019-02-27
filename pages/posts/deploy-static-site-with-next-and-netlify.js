@@ -204,7 +204,10 @@ export default Index
           <p style={blogStyles.contentStyle}>
             If you followed along and created a site with me today, please share it with me on{' '}
             <a href='https://twitter.com/khalligans47'>Twitter</a>. I would love to see what you
-            made!
+            made! Here's mine:{' '}
+            <a href='https://festive-bardeen-13118b.netlify.com/'>
+              https://festive-bardeen-13118b.netlify.com/
+            </a>
           </p>
         </section>
       </article>
