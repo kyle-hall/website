@@ -94,22 +94,22 @@ const Post = props => (
             I love it. So, check them out for any gaps I leave here.
           </p>
           <p style={blogStyles.contentStyle}>So, for the quickest of quickstarts:</p>
-          <ul>
-            <li>
+          <ul style={blogStyles.contentStyle}>
+            <li style={listStyles}>
               Create a new directory your machine:{' '}
               <pre style={blogStyles.codeSampleStyling}>{`> mkdir hello-nextjs`}</pre>
             </li>
-            <li>
+            <li style={listStyles}>
               Set it up as a JavaScript package:
               <pre style={blogStyles.codeSampleStyling}>{`> cd hello-nextjs
 > yarn init -y
 `}</pre>
             </li>
-            <li>
+            <li style={listStyles}>
               Install next, react, and react-dom:
               <pre style={blogStyles.codeSampleStyling}>{`> yarn add react react-dom next`}</pre>
             </li>
-            <li>
+            <li style={listStyles}>
               Add an index page:
               <pre style={blogStyles.codeSampleStyling}>{`> mkdir pages
 > touch pages/index.js
@@ -122,23 +122,90 @@ const Post = props => (
 
 export default Index
 `}</pre>
-            <li>
+            <li style={listStyles}>
               Run next to serve that website!
               <pre style={blogStyles.codeSampleStyling}>{`> ./node_modules/.bin/next`}</pre>
+            </li>
+            <li style={listStyles}>
+              And last, add the export command to your package.json scripts which should leave your
+              package.json file looking like this:
+              <pre style={blogStyles.codeSampleStyling}>{`{
+  "name": "hello-nextjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "export": "next build && next export"
+  },
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+}`}</pre>
             </li>
           </ul>
           <p style={blogStyles.contentStyle}>
             That does feel like a lot - for a quickstart - but it gets us to a point where we can
-            deploy. So, push that code up to a git repository, and let's go to Netlify!
+            deploy. So, push that code up to a git repository, and let's go to{' '}
+            <a href='https://netlify.com'>Netlify</a>!
           </p>
         </section>
         <section>
           <h2 style={blogStyles.headerStyles}>Deploying with Netlify</h2>
-          <p style={blogStyles.contentStyle}>lsdfj;dsf;d</p>
+          <p style={blogStyles.contentStyle}>
+            Sign up (or log in) and you should see a screen that looks like this:
+          </p>
+          <img
+            style={imageStyle}
+            src='/static/images/netlify-new-site.png'
+            alt='netlify user page with button to create new site from git'
+          />
+          <p style={blogStyles.contentStyle}>
+            Click on the 'New Site from Git' button, and then select where you pushed your git repo
+            (mine is on GitHub). Now, you may not have done this before, so you'll have to authorize
+            Netlify on GitHub. It should just be a matter of connecting your GitHub account and then
+            agreeing to authorize it when you're redirected. If you have any trouble with that, let
+            me know, and I'll do my best to help you.
+          </p>
+          <p style={blogStyles.contentStyle}>
+            Once you have authorized Netlify, you should be able to select the repo you created
+            earlier:
+          </p>
+          <img
+            style={imageStyle}
+            src='/static/images/select-repo.png'
+            alt='netlify repo select page'
+          />
+          <p style={blogStyles.contentStyle}>
+            Then, you'll need to tell Netlify which branch you want to deploy from and how to build
+            your site. Rather than explaining, just make sure that your deploy page looks like this:
+          </p>
+          <img
+            style={imageStyle}
+            src='/static/images/set-up-deploy.png'
+            alt='options for which branch to deploy and how to deploy it'
+          />
+          <p style={blogStyles.contentStyle}>
+            Click 'Deploy Site' and you'll be redirected to a page that looks like this:
+          </p>
+          <img
+            style={imageStyle}
+            src='/static/images/deploying-site.png'
+            alt='page displaying status of site deploy'
+          />
         </section>
         <section>
           <h2 style={blogStyles.headerStyles}>Conclusion</h2>
-          <p style={blogStyles.contentStyle}>lkksdjf;asjdfljkas</p>
+          <p style={blogStyles.contentStyle}>
+            And that's it! You now have a deployed static site that anyone can visit. Netlify
+            generated a domain for you that you can share with anyone who wants to see your new
+            website. You can add a custom domain later, if you'd like.
+          </p>
+          <p style={blogStyles.contentStyle}>
+            If you followed along and created a site with me today, please share it with me on{' '}
+            <a href='https://twitter.com/khalligans47'>Twitter</a>. I would love to see what you
+            made!
+          </p>
         </section>
       </article>
     </div>
@@ -146,3 +213,13 @@ export default Index
 )
 
 export default Post
+
+const imageStyle = {
+  display: 'block',
+  height: 500,
+  width: 800
+}
+
+const listStyles = {
+  marginBottom: 15
+}
