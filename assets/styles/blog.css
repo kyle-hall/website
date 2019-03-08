@@ -1,0 +1,61 @@
+body {
+  font-family: 'Sarabun', sans-serif;
+}
+
+.contentContainer {
+  width: 92%;
+  max-width: 50em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 'auto';
+  margin-left: 'auto';
+  font-family: 'Monteserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+.postContainer {
+  line-height: 1.5;
+  color: #333;
+  padding-bottom: 1em;
+}
+
+.codeSample {
+  background-color: #eee;
+  padding-left: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Courier New', sans-serif;
+  font-size: 14px;
+}
+
+.inlineCode {
+  background-color: #eee;
+  padding: 2px;
+  font-family: 'Courier New', sans-serif;
+  border-radius: 3px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.article {
+  margin-bottom: 30px;
+}
+
+.aboutLayout {
+  margin-top: 80px;
+  line-height: 1.5;
+}
+
+.bigHeading {
+  font-size: 3vw;
+}

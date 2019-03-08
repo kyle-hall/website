@@ -1,0 +1,20 @@
+footer {
+  width: 75%;
+  height: 200px;
+  margin: 0 auto;
+  padding-top: 100;
+}
+
+.linkContainer {
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+}
