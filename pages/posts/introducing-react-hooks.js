@@ -40,6 +40,27 @@ const Post = _ => (
             JavaScript functions. They take props as a function argument, can process those props or
             calculate other data needed for the render, and then return a chunk of JSX.
           </p>
+          <h3 style={blogStyles.headerStyles}>Why would I ever use class-based components?</h3>
+          <p style={blogStyles.contentStyle}>
+            Well, the main reason is that bit about state and life-cycle methods from the section up
+            above. Until quite recently, class-based components were the only way to have state or
+            to access life-cyle methods in a React component. Functional components were relegated
+            to the "dumb view" portion of React apps.
+          </p>
+          <p style={blogStyles.contentStyle}>
+            This leads us nicely into the main topic for today...
+          </p>
+          <img
+            src="https://media.giphy.com/media/ehTMCiPzFTiak/giphy.gif"
+            alt="Nintendo's Super Smash Brother New Challenger Message"
+          />
+        </section>
+        <section>
+          <h2 style={blogStyles.headerStyles}>React Hooks</h2>
+          <p style={blogStyles.contentStyle}>
+            React Hooks are THE big new feature of React. And what do they do? They make functional
+            components viable for use throughout your entire app.
+          </p>
         </section>
       </article>
     </div>
