@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Head from 'next/head'
 
 import BlogLayout from '../components/BlogLayout'
@@ -13,9 +12,9 @@ const BlogIndex = props => (
       <h1 style={headerStyle}>Posts</h1>
       <div style={articleListing}>
         <ArticleListItem
-          title="Test-Driving React Hooks"
-          date="2019-04-02"
-          link="/posts/test-driving-react-hooks"
+          title="Introducing React Hooks"
+          date="2019-04-24"
+          link="/posts/introducing-react-hooks"
         />
         <ArticleListItem
           title="Deploying Static Sites with Next.js and Netlify"
