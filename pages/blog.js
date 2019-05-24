@@ -12,6 +12,11 @@ const BlogIndex = props => (
       <h1 style={headerStyle}>Posts</h1>
       <div style={articleListing}>
         <ArticleListItem
+          title="Test-driving React Hooks"
+          date="2019-05-22"
+          link="/posts/test-driving-react-hooks"
+        />
+        <ArticleListItem
           title="Introducing React Hooks"
           date="2019-04-24"
           link="/posts/introducing-react-hooks"
