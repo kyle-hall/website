@@ -20,7 +20,11 @@ export const codeSampleStyling = {
   paddingTop: 20,
   paddingBottom: 20,
   fontFamily: ['Courier New', 'sans-serif'],
-  fontSize: 14
+  fontSize: 15,
+  borderLeftWidth: 4,
+  borderLeftStyle: 'solid',
+  borderLeftColor: '#AA0000',
+  lineHeight: 1.4
 }
 
 export const insetStyle = {
