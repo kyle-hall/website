@@ -1,27 +1,26 @@
 import BlogLayout from '../../components/BlogLayout'
-import blogStyles from '../../common/blogPostStyles'
 
 const Post = props => (
   <BlogLayout>
-    <div style={blogStyles.containerStyle}>
-      <h1 style={{ fontFamily: ['Montserrat', 'sans-serif'], fontSize: '3vw' }}>
+    <div className='post-container'>
+      <h1 className='post-container__h1--big'>
         Test-Driven Binary Search Tree with Kotlin, Part 1
       </h1>
       <article>
-        <p style={blogStyles.contentStyle}>
+        <p>
           Hi, and welcome to my first post on my new blog. Today, we'll be covering test-driven
           development and some computer science all using the Kotlin programming language. I don't
           have a comment section figured out, yet, so for now, if you have feedback please contact
           me via <a href='https://twitter.com/khalligans47'>Twitter</a>.
         </p>
         <section>
-          <h2 style={blogStyles.headerStyles}>Quick Test-Driven Development (TDD) Crash Course</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>Quick Test-Driven Development (TDD) Crash Course</h2>
+          <p>
             Alright, for those who don't know, or maybe need a refresher, test-driven development is
             a process for writing better code by writing the tests first. Test-driven development
             follows a three-step process:
           </p>
-          <ol style={blogStyles.contentStyle}>
+          <ol>
             <li>Write the test. See it fail.</li>
             <li>Write or change some code to make the test pass.</li>
             <li>
@@ -29,25 +28,25 @@ const Post = props => (
               easiest thing you could do to make your tests pass.
             </li>
           </ol>
-          <p style={blogStyles.contentStyle}>
+          <p>
             This process ensures that you know your code works, at least as well as you've tested
             it. Starting with a failing test gives you a place to start and a clear goal in mind: "I
             need to fix this thing and make the test pass." Then, when make your code changes and
             see the test go green, you know your code actually works because the tests failed before
             you wrote it and passes aftewards.
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             For me, this whole process boosts my developer happiness, as well. If I start with a
             failing test, I get to start with something that is broken. Writing the code that makes
             the tests all go green feels good because I fixed the broken thing.
           </p>
         </section>
         <section>
-          <h2 style={blogStyles.headerStyles}>The Data Structure: Binary-Search Tree (BST)</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>The Data Structure: Binary-Search Tree (BST)</h2>
+          <p>
             A binary-search tree is a special kind of tree in computer science. It has four main
             properties we'll concern ourselves with today:
-            <ol style={blogStyles.contentStyle}>
+            <ol>
               <li>Each node the in the tree may have up to two children.</li>
               <li>
                 All of the nodes that are left children of a given node are less than that node.
@@ -58,7 +57,7 @@ const Post = props => (
               <li>While not strictly true of all BSTs, our BST will not store duplicate values.</li>
             </ol>
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             A note before we move on to the implementation: There are a couple different ways we
             could implement this BST, imperative and recursive. Briefly, the difference is that the
             imperative approach modifies the BST in place, while the recursive approach returns a
@@ -68,16 +67,16 @@ const Post = props => (
           </p>
         </section>
         <section>
-          <h2 style={blogStyles.headerStyles}>The Setup</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>The Setup</h2>
+          <p>
             As the title mentions, we'll be using <a href='https://kotlinlang.org/'>Kotlin</a>, a
             relatively new programming language developed by Jetbrains. We can use Gradle to set up
             our project. Now, I like the JVM, and Gradle, so I'll do a separate article explaining
             more about creating new Gradle-based projects in the future. But, that's outside the
             scope of this article, so, for now, here's the{' '}
-            <span style={blogStyles.insetStyle}>build.gradle</span> file you'll need to get started
+            <span className='inset-code-sample'>build.gradle</span> file you'll need to get started
             with this project, in case you'd like to code along with me.
-            <pre style={blogStyles.codeSampleStyling}>
+            <pre className='code-example'>
               {`buildscript {
     ext.kotlin_version = '1.2.61'
 
@@ -134,11 +133,11 @@ check.dependsOn jacocoTestReport
             version.
           </p>
 
-          <p style={blogStyles.contentStyle}>
+          <p>
             Okay, so, to finish the setup, put that build.gradle file at the root of your project
             directory. Then, create a series of nested directories that should end up looking like
             this:
-            <pre style={blogStyles.codeSampleStyling}>
+            <pre className='code-example'>
               {`/binary-search-tree
   src/
     main/
@@ -150,7 +149,7 @@ check.dependsOn jacocoTestReport
 `}
             </pre>
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             And that's it for Part One! Join me in part two where we'll write our first test and
             start insert values into our tree.
           </p>

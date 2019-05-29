@@ -2,104 +2,99 @@ import React from 'react'
 import Link from 'next/link'
 
 import BlogLayout from '../../components/BlogLayout'
-import blogStyles from '../../common/blogPostStyles'
 
 const Post = props => (
   <BlogLayout>
-    <div style={blogStyles.containerStyle}>
-      <h1 style={{ fontFamily: ['Montserrat', 'sans-serif'], fontSize: '3vw' }}>
-        Test-Driving React Hooks
-      </h1>
+    <div className='post-container'>
+      <h1 className='post-container__h1--big'>Test-Driving React Hooks</h1>
       <article>
-        <p style={blogStyles.contentStyle}>
+        <p>
           <Link href={'/posts/introducing-react-hooks'}>
-            <a style={{ fontFamily: ['Sarabun', 'sans-serif'] }}>Last time</a>
+            <a>Last time</a>
           </Link>
           , I talked about what React hooks are, how they enable deeper use of functional
           components, and why you might want to use functional components over class-based
           components. This time, I'd like to focus on testing React hooks, specifically test-driving
           them into an application.
         </p>
-        <p style={blogStyles.contentStyle}>
+        <p>
           I'd like to note up front that I'm going to be assuming a couple things in this article.
           First, I assume you have npm installed and know how to use it. And second, you know how to
           create a new react application (I recommend using{' '}
-          <a href="https://facebook.github.io/create-react-app/docs/getting-started">
+          <a href='https://facebook.github.io/create-react-app/docs/getting-started'>
             create-react-app
           </a>{' '}
           to get started if you don't know how or just want to get something started quickly).
         </p>
         <section>
-          <h2 style={blogStyles.headerStyles}>Testing Options for Hooks</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>Testing Options for Hooks</h2>
+          <p>
             Before getting too far, I'd like to start with a quick primer on testing React. I plan
             to write a much bigger article about this, but an introduction to the main players
             should be sufficient for today.
           </p>
-          <h3 style={blogStyles.headerStyles}>The Players</h3>
-          <p style={blogStyles.contentStyle}>There are three main players for testing in React:</p>
-          <ul style={blogStyles.contentStyle}>
+          <h3>The Players</h3>
+          <p>There are three main players for testing in React:</p>
+          <ul>
             <li>Jest</li>
             <li>Enzyme</li>
             <li>react-testing-library</li>
           </ul>
-          <p style={blogStyles.contentStyle}>
-            <a href="https://jestjs.io/">Jest</a> is a very popular JavaScript test runner. It
+          <p>
+            <a href='https://jestjs.io/'>Jest</a> is a very popular JavaScript test runner. It
             provides many utilities for testing your applications, and I highly recommend it.
           </p>
-          <p style={blogStyles.contentStyle}>
-            <a href="https://airbnb.io/enzyme">Enzyme</a> is a testing utility for React. It
+          <p>
+            <a href='https://airbnb.io/enzyme'>Enzyme</a> is a testing utility for React. It
             provides the ability to render the components in your application and search for
             elements in the render tree.
           </p>
-          <p style={blogStyles.contentStyle}>
-            <a href="https://testing-library.com/docs/react-testing-library/intro">
+          <p>
+            <a href='https://testing-library.com/docs/react-testing-library/intro'>
               react-testing-library
             </a>{' '}
             is another testing library for React that sells itself as a replacement for Enzyme.
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             For this article, we will be using Jest and react-testing-library. I am far more
             familiar with Enzyme, but, unfortunately, as of the time of this post it does not fully
             support hooks at this time. Follow{' '}
-            <a href="https://github.com/airbnb/enzyme/issues/2011">this</a> GitHub issue for more
+            <a href='https://github.com/airbnb/enzyme/issues/2011'>this</a> GitHub issue for more
             information and updates on its support for React hooks.
           </p>
         </section>
         <section>
-          <h2 style={blogStyles.headerStyles}>Getting Set Up</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>Getting Set Up</h2>
+          <p>
             Assuming you have a new React project, we just need to add a couple things to get going.
             First, check your
-            <span style={blogStyles.insetStyle}>package.json</span> file to ensure you have at least
-            version <span style={blogStyles.insetStyle}>16.8.0</span> of React, as that is the first
+            <span className='inset-code-sample'>package.json</span> file to ensure you have at least
+            version <span className='inset-code-sample'>16.8.0</span> of React, as that is the first
             version containing hooks in the stable build. Next head to your terminal and add the
             dependencies for react-testing-library:
           </p>
-          <h3 style={blogStyles.contentStyle}>Using npm</h3>
-          <pre
-            style={blogStyles.codeSampleStyling}
-          >{`> npm install --save-dev react-testing-library`}</pre>
-          <h3 style={blogStyles.contentStyle}>Using yarn</h3>
-          <pre style={blogStyles.codeSampleStyling}>{`> yarn add --dev react-testing-library`}</pre>
+          <h3>Using npm</h3>
+          <pre className='code-example'>{`> npm install --save-dev react-testing-library`}</pre>
+          <h3>Using yarn</h3>
+          <pre className='code-example'>{`> yarn add --dev react-testing-library`}</pre>
 
-          <p style={blogStyles.contentStyle}>
+          <p>
             Now, I would suggest you read the docs for yourself, such as they are in their current
             state. I had some difficulty understanding what I need for testing this hook. The
             relevant links are the following:
-            <ul style={blogStyles.contentStyle}>
+            <ul>
               <li>
-                <a href="https://github.com/testing-library/react-testing-library">
+                <a href='https://github.com/testing-library/react-testing-library'>
                   The GitHub repo
                 </a>
               </li>
               <li>
-                <a href="https://testing-library.com/https://testing-library.com/">
+                <a href='https://testing-library.com/https://testing-library.com/'>
                   The home of the docs
                 </a>
               </li>
               <li>
-                <a href="https://testing-library.com/docs/react-testing-library/intro">
+                <a href='https://testing-library.com/docs/react-testing-library/intro'>
                   The docs for react-testing-library
                 </a>
               </li>
@@ -107,15 +102,15 @@ const Post = props => (
           </p>
         </section>
         <section>
-          <h2 style={blogStyles.headerStyles}>Driving the Hook In</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>Driving the Hook In</h2>
+          <p>
             Great, so with that done, we can drive in this hook. The hook we'll be using, as I
-            mentioned before will be the <span style={blogStyles.insetStyle}>useState</span> hook.
+            mentioned before will be the <span className='inset-code-sample'>useState</span> hook.
             And we'll be making a simple counter with a button to increment it. Nothing fancy for
             this; using the testing library is the important part here. And so, we begin with a test
-            in a file called <span style={blogStyles.insetStyle}>HookCounter.spec.js</span>:
+            in a file called <span className='inset-code-sample'>HookCounter.spec.js</span>:
           </p>
-          <pre style={blogStyles.codeSampleStyling}>
+          <pre className='code-example'>
             {`import { render, getByTestId, fireEvent } from 'react-testing-library'
 
 import HookCounter from './HookCounter'
@@ -133,36 +128,36 @@ describe('HookCounter', () => {
 })
 `}
           </pre>
-          <p style={blogStyles.contentStyle}>
+          <p>
             There's a lot going on there, so let's take a closer look. First, we import the things
             we need from react-testing-library. We get a function to render the component, a
             function to find the button we'll be using to increment the counter, and, finally, a way
             to simulate a click on that button. Then we use that render function inside our test -
-            designated by the <span style={blogStyles.insetStyle}>it</span> - and deconstruct the
+            designated by the <span className='inset-code-sample'>it</span> - and deconstruct the
             rendered container out of the object that render function produces. Next, we find our
             button by the test ID we'll set up later and fire off a fake click event on it. That
             should simulate the behavior we want, namely that clicking the button increments the
             counter. Finally, we use Jest's assertion{' '}
-            <span style={blogStyles.insetStyle}>expect</span> to assert the content of the count
+            <span className='inset-code-sample'>expect</span> to assert the content of the count
             display has been changed from 0 - the initial value we assume will be used by the
             component - to 1.
           </p>
-          <p style={blogStyles.contentStyle}>Cool, so we run the test and that should fail.</p>
-          <p style={blogStyles.contentStyle}>
+          <p>Cool, so we run the test and that should fail.</p>
+          <p>
             And it's a simple failure. We haven't created the{' '}
-            <span style={blogStyles.insetStyle}>HookCounter</span> component yet. That's easy to
+            <span className='inset-code-sample'>HookCounter</span> component yet. That's easy to
             fix:
           </p>
-          <pre style={blogStyles.codeSampleStyling}>
+          <pre className='code-example'>
             {`import React from 'react'
             
 export default const HookCounter = () => <div></div>`}
           </pre>
-          <p style={blogStyles.contentStyle}>
+          <p>
             That will give us enough to get through to the failure to find our button. That's a good
             start. The empty div we had before won't cut it, anymore. Let's add some content:
           </p>
-          <pre style={blogStyles.codeSampleStyling}>
+          <pre className='code-example'>
             {`import React from 'react'
             
 export default const HookCounter = () => (
@@ -177,17 +172,17 @@ export default const HookCounter = () => (
   </div>
 )`}
           </pre>
-          <p style={blogStyles.contentStyle}>
+          <p>
             Perfect, that gets us to the assertion failure. I worked ahead a little, adding the
             count display and doing some minor styling so we could get to that assertion failure
             faster.
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             Now, the assertion says still have 0 for the display. Why's that? Well, we haven't
             started using the hook, yet! So, let's get that in there. To do that, we need to import
-            the <span style={blogStyles.insetStyle}>useState</span> hook and create a click handler:
+            the <span className='inset-code-sample'>useState</span> hook and create a click handler:
           </p>
-          <pre style={blogStyles.codeSampleStyling}>
+          <pre className='code-example'>
             {`import React, { useState } from 'react'
             
 export default const HookCounter = () => {
@@ -208,24 +203,24 @@ export default const HookCounter = () => {
 }`}
           </pre>
 
-          <p style={blogStyles.contentStyle}>
+          <p>
             And that should do it. We should have a passing test now. Notice that instead of naming
-            my deconstructed values from useState <span style={blogStyles.insetStyle}>state</span>
-            and <span style={blogStyles.insetStyle}>setState</span>, I changed their names as I
+            my deconstructed values from useState <span className='inset-code-sample'>state</span>
+            and <span className='inset-code-sample'>setState</span>, I changed their names as I
             deconstructed them to make more sense in the app.
           </p>
         </section>
         <section>
-          <h2 style={blogStyles.headerStyles}>Conclusion</h2>
-          <p style={blogStyles.contentStyle}>
+          <h2>Conclusion</h2>
+          <p>
             I know this was a pretty simple example, but I want to make the business logic simple in
             order to focus on the testing aspects. The code I originally wrote to figure this out
             can be found in this{' '}
-            <a href="https://github.com/kyle-hall/react-hooks-with-typescript">repo</a>. I was
+            <a href='https://github.com/kyle-hall/react-hooks-with-typescript'>repo</a>. I was
             working on more than just one thing there - including TypeScript - but I liked what I
             ended up with, and maybe the steps of the commits will be helpful.
           </p>
-          <p style={blogStyles.contentStyle}>
+          <p>
             If you have any comments or suggestions - or maybe just liked the article :) - please
             feel free to get in touch with me via Twitter using the link below. That's all for
             today. Thanks for reading, and I'll see you next time.
