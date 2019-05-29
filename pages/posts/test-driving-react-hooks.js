@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 
 import BlogLayout from '../../components/BlogLayout'
-import blogStyles from '../../common/blogPostStyles'
 
 const Post = props => (
   <BlogLayout>

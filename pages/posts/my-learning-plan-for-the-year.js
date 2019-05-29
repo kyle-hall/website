@@ -1,5 +1,4 @@
 import BlogLayout from '../../components/BlogLayout'
-import blogStyles from '../../common/blogPostStyles'
 
 const Post = props => (
   <BlogLayout>
