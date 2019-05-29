@@ -17,6 +17,11 @@ const BlogIndex = props => (
           link="/posts/test-driving-react-hooks"
         />
         <ArticleListItem
+          title="My Learning Plan for the Year"
+          date="2019-04-26"
+          link="/posts/my-learning-plan-for-the-year"
+        />
+        <ArticleListItem
           title="Introducing React Hooks"
           date="2019-04-24"
           link="/posts/introducing-react-hooks"
