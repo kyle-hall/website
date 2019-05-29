@@ -4,8 +4,10 @@ import PostTitle from '../views/postTitle'
 const PostLayout = props => (
   <BlogLayout>
     <div className='post-container'>
-      <PostTitle title={props.title} />
-      {props.children}
+      <article>
+        <PostTitle title={props.title} />
+        {props.children}
+      </article>
     </div>
   </BlogLayout>
 )
