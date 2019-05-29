@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import BlogLayout from '../components/BlogLayout'
-import ArticleListItem from '../components/ArticleListItem'
+import BlogLayout from '../components/layouts/BlogLayout'
+import ArticleListItem from '../components/views/ArticleListItem'
 
 const BlogIndex = props => (
   <div>
@@ -12,6 +12,11 @@ const BlogIndex = props => (
       <BlogLayout>
         <h1 className='blog__main-header'>Posts</h1>
         <div className='blog__article-list'>
+          <ArticleListItem
+            title='Intro to Functional Programming'
+            date='2019-05-22'
+            link='/posts/intro-to-functional-programming'
+          />
           <ArticleListItem
             title='Test-driving React Hooks'
             date='2019-05-22'

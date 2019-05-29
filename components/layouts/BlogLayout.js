@@ -1,4 +1,4 @@
-import Footer from './Footer'
+import Footer from '../Footer'
 import Head from 'next/head'
 
 const BlogLayout = props => (
