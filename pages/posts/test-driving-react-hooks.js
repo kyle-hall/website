@@ -186,16 +186,16 @@ export default const HookCounter = () => (
             {`import React, { useState } from 'react'
             
 export default const HookCounter = () => {
-  const { state: { count }, incrementCount } = useState({ count: 0 })
+  const { { count }, incrementCount } = useState({ count: 0 })
   
   return (
     <div>
-      <h3 data-testid={'count-display}>{count}</h3>
+      <h3 data-testid={'count-display}>{ count }</h3>
       <button
         data-testid={'increment'}
         type="button"
         style={{width: 260, height: 50, backgroundColor: '#39CCCC'}}
-        onClick={() => incrementCount({count: count + 1})}
+        onClick={() => incrementCount({ count: count + 1 })}
       >+
       </button>
     </div>
