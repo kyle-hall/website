@@ -37,8 +37,8 @@ const Post = props => (
             tests and whether they passed or failed. I feel that this is a very small thing that
             most developers would take for granted. I agree. Just one little problem: I wasn't
             getting them. Every time I ran my tests from the terminal, I got{' '}
-            <span>Build Success</span> if they all passed. And that's it. Nothing about which tests
-            ran, how long they took, anything. Odd.
+            <span className='inset-code-sample'>Build Success</span> if they all passed. And that's
+            it. Nothing about which tests ran, how long they took, anything. Odd.
           </p>
           <p>
             Was it a problem with Gradle? I intentionally failed one of my tests and re-ran them.
@@ -55,12 +55,13 @@ const Post = props => (
           </p>
           <ul>
             <li>
-              Run <span>gradle test -i</span> instead of <span>gradle test</span>. This didn't work
-              for me. All I got was a list of all the tasks Gradle ran to execute my tests. This was
-              enlightening, but didn't solve my problem.
+              Run <span className='inset-code-sample'>gradle test -i</span> instead of{' '}
+              <span className='inset-code-sample'>gradle test</span>. This didn't work for me. All I
+              got was a list of all the tasks Gradle ran to execute my tests. This was enlightening,
+              but didn't solve my problem.
             </li>
             <li>
-              Add the following to your <span>build.gradle</span>:
+              Add the following to your <span className='inset-code-sample'>build.gradle</span>:
               <pre className='code-example'>{`test {
     testLogging {
         standardOutputStreams true

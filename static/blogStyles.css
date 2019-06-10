@@ -85,7 +85,7 @@ html {
 
 .post-container__h1--big {
   font-family: Montserrat, 'sans-serif';
-  font-size: 3vw;
+  font-size: 3em;
 }
 
 .post-container h2,
@@ -111,14 +111,16 @@ html {
 }
 
 .inset-code-sample {
-  background-color: #eee;
-  padding: 2px;
+  background-color: #1b2a33;
+  color: #eee;
+  padding: 3px 5px;
   font-family: 'Courier New', 'sans-serif';
   border-radius: 3px;
 }
 
 .code-example {
-  background-color: #eee;
+  background-color: #1b2a33;
+  color: #eee;
   padding-left: 15px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -126,7 +128,7 @@ html {
   font-size: 15px;
   border-left-width: 4px;
   border-left-style: solid;
-  border-left-color: #aa0000;
+  border-left-color: hsla(147, 100%, 50%, 1);
   line-height: 1.4;
 }
 
