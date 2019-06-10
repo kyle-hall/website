@@ -16,6 +16,11 @@ const BlogIndex = props => (
         <h1 className='blog__main-header'>Posts</h1>
         <div className='blog__article-list'>
           <ArticleListItem
+            title='Starting a React Project from Scratch with Parcel.js'
+            date='2019-06-10'
+            link='/posts/manual-react-from-scratch-with-parceljs'
+          />
+          <ArticleListItem
             title='Test-driving React Hooks'
             date='2019-05-22'
             link='/posts/test-driving-react-hooks'
