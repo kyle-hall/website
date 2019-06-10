@@ -2,13 +2,16 @@ import Head from 'next/head'
 
 import BlogLayout from '../components/BlogLayout'
 import ArticleListItem from '../components/ArticleListItem'
+import NavBar from '../components/NavBar'
 
 const BlogIndex = props => (
   <div>
     <Head>
       <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' />
+      <link rel='stylesheet' href='/static/blogStyles.css' />
     </Head>
     <div className='blog'>
+      <NavBar />
       <BlogLayout>
         <h1 className='blog__main-header'>Posts</h1>
         <div className='blog__article-list'>
