@@ -67,17 +67,15 @@ const Post = props => (
           <h2>Getting Set Up</h2>
           <p>
             Assuming you have a new React project, we just need to add a couple things to get going.
-            First, check your
-            <span className='inset-code-sample'>package.json</span> file to ensure you have at least
-            version <span className='inset-code-sample'>16.8.0</span> of React, as that is the first
-            version containing hooks in the stable build. Next head to your terminal and add the
-            dependencies for react-testing-library:
+            First, check your <span className='inset-code-sample'>package.json</span> file to ensure
+            you have at least version <span className='inset-code-sample'>16.8.0</span> of React, as
+            that is the first version containing hooks in the stable build. Next head to your
+            terminal and add the dependencies for react-testing-library:
           </p>
           <h3>Using npm</h3>
           <pre className='code-example'>{`> npm install --save-dev react-testing-library`}</pre>
           <h3>Using yarn</h3>
           <pre className='code-example'>{`> yarn add --dev react-testing-library`}</pre>
-
           <p>
             Now, I would suggest you read the docs for yourself, such as they are in their current
             state. I had some difficulty understanding what I need for testing this hook. The
