@@ -13,24 +13,3 @@ const Footer = props => (
 )
 
 export default Footer
-
-const footerStyle = {
-  width: '75%',
-  height: 200,
-  margin: '0 auto',
-  paddingTop: 100
-}
-
-const linkContainerStyles = {
-  height: 200,
-  display: 'flex',
-  justifyContent: 'space-around',
-  alignItems: 'center'
-}
-
-const linkStyles = {
-  display: 'flex',
-  justifyContent: 'center',
-  width: 75,
-  height: 75
-}
