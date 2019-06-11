@@ -101,7 +101,25 @@ yarn remove == npm uninstall
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-ReactDOM.render(<h1>Hello, React App</h1>, document.querySelector('#app'))
+import App from './src/App'
+
+ReactDOM.render(<App />, document.querySelector('#app'))
+`}
+      </pre>
+      <pre className='code-example'>
+        {`// src/App.js
+
+import React from 'react'
+import GameboyImage from './img/gameboy.svg'
+
+export default App = props => (
+  <div>
+    <h1>Hello React App</h1> 
+    <img src={GameboyImage} alt='a cartoon gameboy' width='200' height='200'/>
+  </div>
+)
+
+// image available from 'https://pixelbuddha.net/freebie/nerd-free-flat-icons'
 `}
       </pre>
       <p>
@@ -122,6 +140,172 @@ ReactDOM.render(<h1>Hello, React App</h1>, document.querySelector('#app'))
     </section>
     <section>
       <h2>Step Two: The Tests</h2>
+      <p>Same as the step before, we'll start by installing some dependencies:</p>
+      <pre className='code-example'>
+        {`> yarn add jest babel-jest enzyme enzyme-adapter-react-16 --dev`}
+      </pre>
+      <p>
+        When that's done installing, we need to configure Jest a little bit so our code gets
+        transformed correctly before the tests run:
+      </p>
+      <pre className='code-example'>
+        {`// in package.json
+  "scripts": {
+    // ...those scripts from above,
+    "test": "jest",
+    "watch": "jest --watchAll"
+  }
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }`}
+      </pre>
+      <p>
+        This tells Jest to use Babel to transform all our React code before running the tests. Jest
+        will throw some weird errors if you forget this step. Then, because we're using Enzyme, we
+        need a setup file to initialize it at the beginning of all of the tests. But, we don't have
+        one of those, so let's get that in there:
+      </p>
+      <pre className='code-example'>
+        {`const Enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
+
+Enzyme.configure({ adapter: new Adapter() })
+`}
+      </pre>
+      <p>
+        <em>Note:</em> Normally, I would like to the{' '}
+        <span className='inset-code-sample'>import/export</span> syntax to get enyzme and the
+        adapter. However, this jest setup file is run with Node, which doesn't support that syntax,
+        yet. It is possible to make this work, but requires we install a few other things, so I'm
+        not going to include it in this guide.
+      </p>
+      <p>With all of that done, we can write our first test:</p>
+      <pre className='code-example'>
+        {`// App.spec.js
+
+import React from 'react'
+import { shallow } from 'enzyme'
+import App from './App'
+
+describe('App', () => {
+  it('should render without crashing', () => {
+    const wrapper = shallow(<App />)
+
+    expect(wrapper).toBeTruthy()
+  })
+})
+`}
+      </pre>
+      <p>
+        Not a very valuable test, but it should validate our test setup is working. So, let's try it
+        out. Run <span className='inset-code-sample'>yarn test</span> in your terminal, and...
+      </p>
+      <img
+        src={'https://media.giphy.com/media/MVgLEacpr9KVK172Ne/giphy.gif'}
+        alt='black and white gif of plane crashing into hill'
+      />
+      <p>
+        That didn't quite work. Why? Because Jest doesn't know what to do with the SVG. I tried a
+        few different solutions for this:
+      </p>
+      <ul>
+        <li>
+          <h4>Creating a file mock</h4>
+          <ol>
+            <li>
+              <p>
+                Create a folder called __mocks__ (I think that's just a convention, not something
+                that's actually required) at the root of your project
+              </p>
+            </li>
+            <li>
+              <p>
+                Add a file called <span className='inset-code-sample'>fileMock.js</span> and add{' '}
+                <span className='inset-code-sample'>module.exports = 'file-stub'</span>
+              </p>
+            </li>
+            <li>
+              <p>Add this option to your jest config in your package.json:</p>
+              <pre className='code-example'>
+                {`
+  "jest": {
+    "transform": {
+      // ...the transform we added earlier
+      "moduleNameMapper": {
+        "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
+      }
+    }
+  }
+`}
+              </pre>
+              <p>
+                This didn't work for me, and, I'm not 100% on this, I think it might be because I'm
+                using Parcel.
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <h4>'identity-obj-mock'</h4>
+          <ol>
+            <li>
+              <span className='inset-code-sample'>> yarn add identity-obj-mock --dev</span>
+            </li>
+            <li>
+              Use the same moduleNameMapper option from above but set the value to
+              "identity-obj-mock"
+            </li>
+          </ol>
+          <p>This also didn't work for me, but I have no idea why.</p>
+        </li>
+        <li>
+          <h4>Create your own transformer:</h4>
+          <pre className='code-example'>
+            {`// assetTransformers/genericTransformer.js
+module.exports = {
+  process() {
+    return 'module.exports = {}'
+  },
+  getCacheKey() {
+    return 'genericTransformer'
+  }
+}
+`}
+          </pre>
+          <p>
+            Use the same "moduleNameMapper" option as the last two solutions and set the value to
+            the path to this transfomer (mine was
+            '&lt;rootDir&gt;/assetTransformers/genericTransformer.js' )
+          </p>
+          <p>
+            This is what ultimately worked for me. You can add file extensions to the regex as
+            needed.
+          </p>
+        </li>
+      </ul>
+      <p>With that, the tests, should run and pass!</p>
+    </section>
+    <section>
+      <h2>Step Three: Profit!</h2>
+      <p>You're all done!</p>
+      <img
+        src='https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif'
+        alt='baby raising its arms in triumph'
+      />
+      <p>You just created a React app from scratch.</p>
+      <p>Go forth and build amazing things!</p>
+    </section>
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        I hope you found this guide helpful. It was fun to put together, and I certainly felt
+        accomplished when I figured it out. Thanks for reading; see you in the next one.
+      </p>
     </section>
   </PostLayout>
 )
