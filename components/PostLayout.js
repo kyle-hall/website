@@ -1,5 +1,6 @@
 import React from 'react'
 import BlogLayout from './BlogLayout'
+import NavBar from './NavBar'
 
 const PostLayout = props => (
   <div>
