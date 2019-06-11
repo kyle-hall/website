@@ -130,6 +130,7 @@ html {
   border-left-style: solid;
   border-left-color: hsla(147, 100%, 50%, 1);
   line-height: 1.4;
+  border-radius: 3px;
 }
 
 .header-bar ul li {
