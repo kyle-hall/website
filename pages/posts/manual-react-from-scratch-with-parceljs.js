@@ -171,7 +171,9 @@ export default App = props => (
         one of those, so let's get that in there:
       </p>
       <pre className='code-example'>
-        {`const Enzyme = require('enzyme')
+        {`// <rootDir>/jest.setup.js
+
+const Enzyme = require('enzyme')
 const Adapter = require('enzyme-adapter-react-16')
 
 Enzyme.configure({ adapter: new Adapter() })
