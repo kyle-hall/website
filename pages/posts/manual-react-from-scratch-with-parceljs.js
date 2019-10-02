@@ -6,10 +6,10 @@ const Post = props => (
       <p>
         Hey, y'all. I've been working on more React as I gear up for a new project at work, and I
         decided to try my hand at setting a React project from scratch.{' '}
-        <span className='inset-code-sample'>create-react-app</span> is cool for getting started
+        <span className="inset-code-sample">create-react-app</span> is cool for getting started
         quickly, but usually leaves me with a project that's got too much going on for me. I usually
         put up with that because I don't want to deal with creating my own Webpack config. But, with
-        the advent of <a href='https://parceljs.org'>Parcel.js</a>, I don't need to worry about
+        the advent of <a href="https://parceljs.org">Parcel.js</a>, I don't need to worry about
         that. So, let's get started.
       </p>
       <p>
@@ -17,7 +17,7 @@ const Post = props => (
         equivalent commands using npm. This is for the sake of brevity. In case, you'd like one,
         here's a quick conversion guide:
       </p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`yarn add == npm install
 
 yarn remove == npm uninstall
@@ -27,14 +27,14 @@ yarn remove == npm uninstall
     <section>
       <h2>Step One: The Base</h2>
       <p>First, we need a project:</p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`> mkdir my-awesome-manual-react-project && cd my-awesome-manual-react-project 
 
 > yarn init -y      
 `}
       </pre>
       <p>Cool. Now that we have a project, let's install some stuff:</p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`> yarn add @babel/core @babel/cli @babel/preset-env @babel/preset-react --dev
 
 > yarn add parcel-bundler --dev 
@@ -57,13 +57,15 @@ yarn remove == npm uninstall
         For Babel, we will need a little bit of a config. But, it's a little baby config, really.
         Only three lines:
       </p>
-      <pre className='code-example'>
-        {`{
-  "presets": ["@babel/preset-env, "@babel/preset-react"]
+      <pre className="code-example">
+        {` // .babelrc
+        
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }`}
       </pre>
       <p>Next, we'll add a couple scripts to start and build the app to our package.json:</p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`{
   // ...the rest of your package.json
   "scripts": {
@@ -76,7 +78,7 @@ yarn remove == npm uninstall
         That's cool, but we still don't have an app, yet, just a bunch of other people's code. Let's
         fix that by creating an index.html and an index.js:
       </p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// index.html at the root of the project
         
 <!DOCTYPE html>
@@ -95,7 +97,7 @@ yarn remove == npm uninstall
 </html>
 `}
       </pre>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// index.js file at the root of the project
 
 import React from 'react'
@@ -106,30 +108,32 @@ import App from './src/App'
 ReactDOM.render(<App />, document.querySelector('#app'))
 `}
       </pre>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// src/App.js
 
 import React from 'react'
 import GameboyImage from './img/gameboy.svg'
 
-export default App = props => (
+const App = props => (
   <div>
     <h1>Hello React App</h1> 
     <img src={GameboyImage} alt='a cartoon gameboy' width='200' height='200'/>
   </div>
 )
 
+export default App
+
 // image available from 'https://pixelbuddha.net/freebie/nerd-free-flat-icons'
 `}
       </pre>
       <p>
         That should give us a really simple app. Let's find out. Start it up with{' '}
-        <span className='inset-code-sample'>yarn start</span> and load up{' '}
-        <span className='inset-code-sample'>http://localhost:1234</span> in your browswer. You
+        <span className="inset-code-sample">yarn start</span> and load up{' '}
+        <span className="inset-code-sample">http://localhost:1234</span> in your browswer. You
         should see our welcome message.
       </p>
       <p>
-        <em>Note:</em> The port <span className='inset-code-sample'>1234</span> is the default for
+        <em>Note:</em> The port <span className="inset-code-sample">1234</span> is the default for
         Parcel's dev server.
       </p>
       <p>
@@ -141,14 +145,14 @@ export default App = props => (
     <section>
       <h2>Step Two: The Tests</h2>
       <p>Same as the step before, we'll start by installing some dependencies:</p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`> yarn add jest babel-jest enzyme enzyme-adapter-react-16 --dev`}
       </pre>
       <p>
         When that's done installing, we need to configure Jest a little bit so our code gets
         transformed correctly before the tests run:
       </p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// in package.json
   "scripts": {
     // ...those scripts from above,
@@ -156,7 +160,7 @@ export default App = props => (
     "watch": "jest --watchAll"
   }
   "jest": {
-    "setupFiles": [
+    "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
     ],
     "transform": {
@@ -170,7 +174,7 @@ export default App = props => (
         need a setup file to initialize it at the beginning of all of the tests. But, we don't have
         one of those, so let's get that in there:
       </p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// <rootDir>/jest.setup.js
 
 const Enzyme = require('enzyme')
@@ -181,13 +185,13 @@ Enzyme.configure({ adapter: new Adapter() })
       </pre>
       <p>
         <em>Note:</em> Normally, I would like to the{' '}
-        <span className='inset-code-sample'>import/export</span> syntax to get enyzme and the
+        <span className="inset-code-sample">import/export</span> syntax to get enyzme and the
         adapter. However, this jest setup file is run with Node, which doesn't support that syntax,
         yet. It is possible to make this work, but requires we install a few other things, so I'm
         not going to include it in this guide.
       </p>
       <p>With all of that done, we can write our first test:</p>
-      <pre className='code-example'>
+      <pre className="code-example">
         {`// App.spec.js
 
 import React from 'react'
@@ -205,11 +209,11 @@ describe('App', () => {
       </pre>
       <p>
         Not a very valuable test, but it should validate our test setup is working. So, let's try it
-        out. Run <span className='inset-code-sample'>yarn test</span> in your terminal, and...
+        out. Run <span className="inset-code-sample">yarn test</span> in your terminal, and...
       </p>
       <img
         src={'https://media.giphy.com/media/MVgLEacpr9KVK172Ne/giphy.gif'}
-        alt='black and white gif of plane crashing into hill'
+        alt="black and white gif of plane crashing into hill"
       />
       <p>
         That didn't quite work. Why? Because Jest doesn't know what to do with the SVG. I tried a
@@ -227,13 +231,13 @@ describe('App', () => {
             </li>
             <li>
               <p>
-                Add a file called <span className='inset-code-sample'>fileMock.js</span> and add{' '}
-                <span className='inset-code-sample'>module.exports = 'file-stub'</span>
+                Add a file called <span className="inset-code-sample">fileMock.js</span> and add{' '}
+                <span className="inset-code-sample">module.exports = 'file-stub'</span>
               </p>
             </li>
             <li>
               <p>Add this option to your jest config in your package.json:</p>
-              <pre className='code-example'>
+              <pre className="code-example">
                 {`
   "jest": {
     "transform": {
@@ -256,7 +260,7 @@ describe('App', () => {
           <h4>'identity-obj-mock'</h4>
           <ol>
             <li>
-              <span className='inset-code-sample'>> yarn add identity-obj-mock --dev</span>
+              <span className="inset-code-sample">> yarn add identity-obj-mock --dev</span>
             </li>
             <li>
               Use the same moduleNameMapper option from above but set the value to
@@ -267,7 +271,7 @@ describe('App', () => {
         </li>
         <li>
           <h4>Create your own transformer:</h4>
-          <pre className='code-example'>
+          <pre className="code-example">
             {`// assetTransformers/genericTransformer.js
 module.exports = {
   process() {
@@ -296,8 +300,8 @@ module.exports = {
       <h2>Step Three: Profit!</h2>
       <p>You're all done!</p>
       <img
-        src='https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif'
-        alt='baby raising its arms in triumph'
+        src="https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif"
+        alt="baby raising its arms in triumph"
       />
       <p>You just created a React app from scratch.</p>
       <p>Go forth and build amazing things!</p>
