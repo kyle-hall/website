@@ -15,6 +15,11 @@ const BlogIndex = props => (
       <BlogLayout>
         <h1 className='blog__main-header'>Posts</h1>
         <div className='blog__article-list'>
+        <ArticleListItem
+            title='2020 Introduction'
+            date='2020-02-06'
+            link='/posts/2020-intro'
+          />
           <ArticleListItem
             title='Starting a React Project from Scratch with Parcel.js'
             date='2019-06-10'
