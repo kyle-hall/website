@@ -17,7 +17,7 @@ const BlogIndex = props => (
         <div className='blog__article-list'>
         <ArticleListItem
             title='2020 Introduction'
-            date='2020-02-06'
+            date='2020-04-09'
             link='/posts/2020-intro'
           />
           <ArticleListItem
