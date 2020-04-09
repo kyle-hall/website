@@ -1,15 +1,14 @@
-
 header {
-  background-color: #39CCCC;
-  color: #FFFFFF;
+  background-color: #3cac54;
+  color: #effffb;
 }
 
 :link {
-  color: #FFDC00;
+  color: #ffdc00;
 }
 
 a:visited {
-  color: #85144b;
+  color: #3cac54;
 }
 
 h1 {
@@ -32,12 +31,25 @@ header {
 
 nav {
   display: flex;
-  align-items: space-between;
+  flex-direction: column;
+}
+
+a:hover {
+  transform: scale(1.2);
+}
+
+a::before {
+  content: '> ';
 }
 
 a {
-  padding-left: 10px;
   font-size: 1.2em;
   text-decoration: none;
-  font-family: "Sarabun", sans-serif;
+  font-family: 'Sarabun', sans-serif;
+  transition: transform 300ms ease-in-out;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
 }

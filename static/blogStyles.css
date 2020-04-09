@@ -128,7 +128,7 @@ html {
   font-size: 15px;
   border-left-width: 4px;
   border-left-style: solid;
-  border-left-color: hsla(147, 100%, 50%, 1);
+  border-left-color: #04b9b2;
   line-height: 1.4;
   border-radius: 3px;
 }
@@ -139,15 +139,19 @@ html {
 
 .header-bar a {
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.8em;
 }
 
 .nav-bar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .header-bar {
-  background-color: hsla(147, 100%, 50%, 1);
+  background-color: #4f98ca;
   padding: 10px 0;
+}
+
+.header-bar a:visited {
+  color: #effffb;
 }
