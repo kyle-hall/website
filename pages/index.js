@@ -4,19 +4,7 @@ import Link from 'next/link'
 export default () => (
   <div>
     <Head>
-    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-141920351-1' />
-      <script>{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-      
-        gtag('config', 'UA-141920351-1');
-`}
-      </script>
-      <link rel='stylesheet' href='/static/base.css' />
-      <link rel='stylesheet' href='/static/styles.css' />
-      <link href='https://fonts.googleapis.com/css?family=Montserrat|Sarabun' rel='stylesheet' />
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
+    
     </Head>
     <header>
       <h1>Kyle Hall</h1>

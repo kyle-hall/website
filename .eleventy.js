@@ -1,4 +1,4 @@
-
-module.exports = function(config) {
-  config.addPassthroughCopy('css/')
-}
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy('css/')
+  eleventyConfig.addPassthroughCopy({ "images": "assets/img" })
+};
