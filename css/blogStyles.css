@@ -37,11 +37,8 @@ html {
 }
 
 .article-listing {
-  margin-bottom: 30px;
-}
-
-.article-listing {
   font-size: 2em;
+  margin-bottom: 30px;
 }
 
 .article-listing__title {
@@ -50,10 +47,6 @@ html {
 
 a {
   text-decoration: none;
-}
-
-.blog__article-list li {
-  list-style: none;
 }
 
 .article-listing__date {
