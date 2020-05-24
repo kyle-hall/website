@@ -90,7 +90,7 @@ a {
   padding-bottom: 1em;
 }
 
-.post-container__h1--big {
+.post-container h1 {
   font-family: Montserrat, 'sans-serif';
   font-size: 3em;
 }
