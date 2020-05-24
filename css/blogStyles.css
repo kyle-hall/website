@@ -40,12 +40,25 @@ html {
   margin-bottom: 30px;
 }
 
-.article-listing span {
+.article-listing {
   font-size: 2em;
 }
 
-.article-listing__span--small {
-  font-size: 1.8em;
+.article-listing__title {
+  margin: 16px 0 0 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.blog__article-list li {
+  list-style: none;
+}
+
+.article-listing__date {
+  font-size: 1em;
+  margin: 16px 0 0 16px;
 }
 
 .blog__main-header {
