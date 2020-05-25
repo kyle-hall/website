@@ -43,13 +43,13 @@ title: How to Deploy a Static Site with Next.js and Netlify
   <p>
     Now, static sites don't have to be this basic. There are a lot of great things that can be done
     on top of this without breaking the idea of what being a static site means. I'll leave that for
-    another day, but, if your interested check out the{' '}
-    <a href="https://syntax.fm/show/034/why-static-site-generators-are-awesome">Syntax</a>{' '}
+    another day, but, if your interested check out the
+    <a href="https://syntax.fm/show/034/why-static-site-generators-are-awesome">Syntax</a>
     podcast, episode 34 for more information.
   </p>
   <h3>What is Next.js?</h3>
   <p>
-    <a href="https://nextjs.org/">Next.js</a> is a framework built by{' '}
+    <a href="https://nextjs.org/">Next.js</a> is a framework built by
     <a href="http://zeit.co/">Zeit</a>. It's built on top of React, providing a lot of defaults and
     set-up to help you get started creating React apps quickly. It also has the option to export
     that app as a static site, which is what we'll be doing.
@@ -90,61 +90,84 @@ title: How to Deploy a Static Site with Next.js and Netlify
   <p>So, for the quickest of quickstarts:</p>
   <ul>
     <li>
-      Create a new directory your machine:{' '}
-      <pre class="code-example">{`> mkdir hello-nextjs`}</pre>
+      Create a new directory your machine:
+      <pre class="code-example">
+        <code>
+> mkdir hello-nextjs
+        </code>
+      </pre>
     </li>
     <li>
       Set it up as a JavaScript package:
       <pre class="code-example">
-{`> cd hello-nextjs
-  > yarn init -y
-  `}</pre
+        <code>
+> cd hello-nextjs
+> yarn init -y
+        </code>
+      </pre
       >
     </li>
     <li>
       Install next, react, and react-dom:
-      <pre class="code-example">{`> yarn add react react-dom next`}</pre>
+      <pre class="code-example">
+        <code>
+> yarn add react react-dom next
+        </code>
+      </pre>
     </li>
     <li>
       Add an index page:
       <pre class="code-example">
-{`> mkdir pages
-  > touch pages/index.js
-  `}</pre
+        <code>
+> mkdir pages
+> touch pages/index.js
+        </code>
+      </pre
       >
     </li>
     Add these contents to pages/index.js:
-    <pre class="code-example">{`const Index = props => <h1>Hello, Next.js!</h1>
+    <pre class="code-example"0>
+      <code>
+const Index = props => {{'<h1>Hello, Next.js!</h1>' | escape }}
 
-  export default Index
-  `}</pre>
+export default Index
+      </code>
+    </pre>
     <li>
       Run next to serve that website!
-      <pre class="code-example">{`> ./node_modules/.bin/next`}</pre>
+      <pre class="code-example">
+        <code>
+> ./node_modules/.bin/next
+        </code>
+      </pre>
     </li>
     <li>
       And last, add the export command to your package.json scripts which should leave your
       package.json file looking like this:
       <pre class="code-example">
-{`{
+        <code>
+{
   "name": "hello-nextjs",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-  "export": "next build && next export"
+    "export": "next build && next export"
   },
   "dependencies": {
-  "next": "^8.0.3",
-  "react": "^16.8.3",
-  "react-dom": "^16.8.3"
-  }`}</pre
+    "next": "^8.0.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
+}
+        </code>
+      </pre
       >
     </li>
   </ul>
   <p>
     That does feel like a lot - for a quickstart - but it gets us to a point where we can deploy.
-    So, push that code up to a git repository, and let's go to{' '}
+    So, push that code up to a git repository, and let's go to
     <a href="https://netlify.com">Netlify</a>!
   </p>
 </section>
@@ -185,9 +208,9 @@ title: How to Deploy a Static Site with Next.js and Netlify
     custom domain later, if you'd like.
   </p>
   <p>
-    If you followed along and created a site with me today, please share it with me on{' '}
+    If you followed along and created a site with me today, please share it with me on
     <a href="https://twitter.com/khalligans47">Twitter</a>. I would love to see what you made!
-    Here's mine:{' '}
+    Here's mine:
     <a href="https://festive-bardeen-13118b.netlify.com/">
       https://festive-bardeen-13118b.netlify.com/
     </a>

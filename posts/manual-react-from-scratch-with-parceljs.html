@@ -8,7 +8,7 @@ tags: post
   <h1>{{ title }}</h1>
   <p>
     Hey, y'all. I've been working on more React as I gear up for a new project at work, and I
-    decided to try my hand at setting a React project from scratch.{' '}
+    decided to try my hand at setting a React project from scratch.
     <span class="inset-code-sample">create-react-app</span> is cool for getting started
     quickly, but usually leaves me with a project that's got too much going on for me. I usually
     put up with that because I don't want to deal with creating my own Webpack config. But, with
@@ -22,10 +22,9 @@ tags: post
   </p>
   <pre class="code-example">
     <code>
-      {`yarn add == npm install
+yarn add == npm install
 
-        yarn remove == npm uninstall
-        `}
+yarn remove == npm uninstall
     </code>
   </pre>
 </header>
@@ -34,21 +33,19 @@ tags: post
   <p>First, we need a project:</p>
   <pre class="code-example">
     <code>
-      {`> mkdir my-awesome-manual-react-project && cd my-awesome-manual-react-project 
+> mkdir my-awesome-manual-react-project && cd my-awesome-manual-react-project 
 
-        > yarn init -y      
-        `}
+> yarn init -y      
     </code>
   </pre>
   <p>Cool. Now that we have a project, let's install some stuff:</p>
   <pre class="code-example">
     <code>
-      {`> yarn add @babel/core @babel/cli @babel/preset-env @babel/preset-react --dev
+> yarn add @babel/core @babel/cli @babel/preset-env @babel/preset-react --dev
 
-        > yarn add parcel-bundler --dev 
+> yarn add parcel-bundler --dev 
         
-        > yarn add react react-dom  
-        `}
+> yarn add react react-dom
     </code>
   </pre>
   <p>
@@ -68,23 +65,23 @@ tags: post
   </p>
   <pre class="code-example">
     <code>
-      {` // .babelrc
+// .babelrc
 
-        {
-          "presets": ["@babel/preset-env", "@babel/preset-react"]
-        }`}
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
     </code>
   </pre>
   <p>Next, we'll add a couple scripts to start and build the app to our package.json:</p>
   <pre class="code-example">
     <code>
-      {`{
-        // ...the rest of your package.json
-        "scripts": {
-          "start": "parcel index.html",
-          "build": "parcel build index.html"
-        }
-      }`}
+{
+  // ...the rest of your package.json
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
     </code>
   </pre>
   <p>
@@ -93,61 +90,58 @@ tags: post
   </p>
   <pre class="code-example">
     <code>
-      {`// index.html at the root of the project
+// index.html at the root of the project
     
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <title>Parcel.js React project!</title>
-          </head>
-          <body>
-            <div id="app"></div>
-        
-            <script src="./index.js"></script>
-          </body>
-        </html>
-        `}
+{{'<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Parcel.js React project!</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>' | escape }}
     </code>
   </pre>
   <pre class="code-example">
     <code>
-      {`// index.js file at the root of the project
+// index.js file at the root of the project
 
-        import React from 'react'
-        import ReactDOM from 'react-dom'
-        
-        import App from './src/App'
-        
-        ReactDOM.render(<App />, document.querySelector('#app'))
-        `}
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from './src/App'
+
+ReactDOM.render(<App />, document.querySelector('#app'))
     </code>
   </pre>
   <pre class="code-example">
     <code>
-      {`// src/App.js
+// src/App.js
 
-        import React from 'react'
-        import GameboyImage from './img/gameboy.svg'
+import React from 'react'
+import GameboyImage from './img/gameboy.svg'
+
+const App = props => (
+  {{ '<div>
+    <h1>Hello React App</h1> 
+    <img src={GameboyImage} alt='a cartoon gameboy' width='200' height='200'/>
+  </div>' | escape }}
+)
+    
+export default App
         
-        const App = props => (
-          <div>
-            <h1>Hello React App</h1> 
-            <img src={GameboyImage} alt='a cartoon gameboy' width='200' height='200'/>
-          </div>
-        )
-        
-        export default App
-        
-        // image available from 'https://pixelbuddha.net/freebie/nerd-free-flat-icons'
-        `}
+// image available from 'https://pixelbuddha.net/freebie/nerd-free-flat-icons'
     </code>
   </pre>
   <p>
-    That should give us a really simple app. Let's find out. Start it up with{' '}
-    <span class="inset-code-sample">yarn start</span> and load up{' '}
+    That should give us a really simple app. Let's find out. Start it up with
+    <span class="inset-code-sample">yarn start</span> and load up
     <span class="inset-code-sample">http://localhost:1234</span> in your browswer. You
     should see our welcome message.
   </p>
@@ -166,7 +160,7 @@ tags: post
   <p>Same as the step before, we'll start by installing some dependencies:</p>
   <pre class="code-example">
     <code>
-      {`> yarn add jest babel-jest enzyme enzyme-adapter-react-16 --dev`}
+yarn add jest babel-jest enzyme enzyme-adapter-react-16 --dev
     </code>
   </pre>
   <p>
@@ -175,20 +169,21 @@ tags: post
   </p>
   <pre class="code-example">
     <code>
-      {`// in package.json
-        "scripts": {
-          // ...those scripts from above,
-          "test": "jest",
-          "watch": "jest --watchAll"
-        }
-        "jest": {
-          "setupFilesAfterEnv": [
-            "<rootDir>/jest.setup.js"
-          ],
-          "transform": {
-            "^.+\\.js$": "babel-jest"
-          }
-        }`}
+// in package.json
+
+"scripts": {
+  // ...those scripts from above,
+  "test": "jest",
+  "watch": "jest --watchAll"
+}
+"jest": {
+  "setupFilesAfterEnv": [
+    "<rootDir>/jest.setup.js"
+  ],
+  "transform": {
+    "^.+\\.js$": "babel-jest"
+  }
+}
     </code>
   </pre>
   <p>
@@ -199,18 +194,16 @@ tags: post
   </p>
   <pre class="code-example">
     <code>
-      {`// <rootDir>/jest.setup.js
+// <rootDir>/jest.setup.js
 
-        const Enzyme = require('enzyme')
-        const Adapter = require('enzyme-adapter-react-16')
-        
-        Enzyme.configure({ adapter: new Adapter() })
-        `}
+const Enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
+
+Enzyme.configure({ adapter: new Adapter() })
     </code>
-
   </pre>
   <p>
-    <em>Note:</em> Normally, I would like to the{' '}
+    <em>Note:</em> Normally, I would like to the
     <span class="inset-code-sample">import/export</span> syntax to get enyzme and the
     adapter. However, this jest setup file is run with Node, which doesn't support that syntax,
     yet. It is possible to make this work, but requires we install a few other things, so I'm
@@ -219,20 +212,19 @@ tags: post
   <p>With all of that done, we can write our first test:</p>
   <pre class="code-example">
     <code>
-      {`// App.spec.js
+// App.spec.js
 
-        import React from 'react'
-        import { shallow } from 'enzyme'
-        import App from './App'
-        
-        describe('App', () => {
-          it('should render without crashing', () => {
-            const wrapper = shallow(<App />)
-        
-            expect(wrapper).toBeTruthy()
-          })
-        })
-        `}
+import React from 'react'
+import { shallow } from 'enzyme'
+import App from './App'
+
+describe('App', () => {
+  it('should render without crashing', () => {
+    const wrapper = shallow(<App />)
+
+    expect(wrapper).toBeTruthy()
+  })
+})
     </code>
   </pre>
   <p>
@@ -259,7 +251,7 @@ tags: post
         </li>
         <li>
           <p>
-            Add a file called <span class="inset-code-sample">fileMock.js</span> and add{' '}
+            Add a file called <span class="inset-code-sample">fileMock.js</span> and add
             <span class="inset-code-sample">module.exports = 'file-stub'</span>
           </p>
         </li>
@@ -267,16 +259,16 @@ tags: post
           <p>Add this option to your jest config in your package.json:</p>
           <pre class="code-example">
             <code>
-              {`
-                "jest": {
-                  "transform": {
-                    // ...the transform we added earlier
-                    "moduleNameMapper": {
-                      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
-                    }
-                  }
-                }
-              `}
+// in package.json
+
+"jest": {
+  "transform": {
+    // ...the transform we added earlier
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  }
+}
             </code>
           </pre>
           <p>
@@ -303,16 +295,16 @@ tags: post
       <h4>Create your own transformer:</h4>
       <pre class="code-example">
         <code>
-          {`// assetTransformers/genericTransformer.js
-            module.exports = {
-              process() {
-                return 'module.exports = {}'
-              },
-              getCacheKey() {
-                return 'genericTransformer'
-              }
-            }
-            `}
+// assetTransformers/genericTransformer.js
+
+module.exports = {
+  process() {
+    return 'module.exports = {}'
+  },
+  getCacheKey() {
+    return 'genericTransformer'
+  }
+}
         </code>
       </pre>
       <p>
