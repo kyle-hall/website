@@ -61,19 +61,19 @@ tags: post
   <h2>Getting Set Up</h2>
   <p>
     Assuming you have a new React project, we just need to add a couple things to get going.
-    First, check your <span className='inset-code-sample'>package.json</span> file to ensure you
-    have at least version <span className='inset-code-sample'>16.8.0</span> of React, as that is
+    First, check your <span class='inset-code-sample'>package.json</span> file to ensure you
+    have at least version <span class='inset-code-sample'>16.8.0</span> of React, as that is
     the first version containing hooks in the stable build. Next head to your terminal and add
     the dependencies for react-testing-library:
   </p>
   <h3>Using npm</h3>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`> npm install --save-dev react-testing-library`}
     </code>
   </pre>
   <h3>Using yarn</h3>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`> yarn add --dev react-testing-library`}
     </code>
@@ -103,12 +103,12 @@ tags: post
   <h2>Driving the Hook In</h2>
   <p>
     Great, so with that done, we can drive in this hook. The hook we'll be using, as I mentioned
-    before will be the <span className='inset-code-sample'>useState</span> hook. And we'll be
+    before will be the <span class='inset-code-sample'>useState</span> hook. And we'll be
     making a simple counter with a button to increment it. Nothing fancy for this; using the
     testing library is the important part here. And so, we begin with a test in a file called{' '}
-    <span className='inset-code-sample'>HookCounter.spec.js</span>:
+    <span class='inset-code-sample'>HookCounter.spec.js</span>:
   </p>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`import { render, getByTestId, fireEvent } from 'react-testing-library'
 
@@ -133,20 +133,20 @@ tags: post
     need from react-testing-library. We get a function to render the component, a function to
     find the button we'll be using to increment the counter, and, finally, a way to simulate a
     click on that button. Then we use that render function inside our test - designated by the{' '}
-    <span className='inset-code-sample'>it</span> - and deconstruct the rendered container out
+    <span class='inset-code-sample'>it</span> - and deconstruct the rendered container out
     of the object that render function produces. Next, we find our button by the test ID we'll
     set up later and fire off a fake click event on it. That should simulate the behavior we
     want, namely that clicking the button increments the counter. Finally, we use Jest's
-    assertion <span className='inset-code-sample'>expect</span> to assert the content of the
+    assertion <span class='inset-code-sample'>expect</span> to assert the content of the
     count display has been changed from 0 - the initial value we assume will be used by the
     component - to 1.
   </p>
   <p>Cool, so we run the test and that should fail.</p>
   <p>
     And it's a simple failure. We haven't created the{' '}
-    <span className='inset-code-sample'>HookCounter</span> component yet. That's easy to fix:
+    <span class='inset-code-sample'>HookCounter</span> component yet. That's easy to fix:
   </p>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`import React from 'react'
       
@@ -157,7 +157,7 @@ tags: post
     That will give us enough to get through to the failure to find our button. That's a good
     start. The empty div we had before won't cut it, anymore. Let's add some content:
   </p>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`import React from 'react'
       
@@ -181,9 +181,9 @@ tags: post
   <p>
     Now, the assertion says still have 0 for the display. Why's that? Well, we haven't started
     using the hook, yet! So, let's get that in there. To do that, we need to import the{' '}
-    <span className='inset-code-sample'>useState</span> hook and create a click handler:
+    <span class='inset-code-sample'>useState</span> hook and create a click handler:
   </p>
-  <pre className='code-example'>
+  <pre class='code-example'>
     <code>
       {`import React, { useState } from 'react'
       
@@ -207,8 +207,8 @@ tags: post
   </pre>
   <p>
     And that should do it. We should have a passing test now. Notice that instead of naming my
-    deconstructed values from useState <span className='inset-code-sample'>state</span>
-    and <span className='inset-code-sample'>setState</span>, I changed their names as I
+    deconstructed values from useState <span class='inset-code-sample'>state</span>
+    and <span class='inset-code-sample'>setState</span>, I changed their names as I
     deconstructed them to make more sense in the app.
   </p>
 </section>

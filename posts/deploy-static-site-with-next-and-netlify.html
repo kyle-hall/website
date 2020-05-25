@@ -91,11 +91,11 @@ title: How to Deploy a Static Site with Next.js and Netlify
   <ul>
     <li>
       Create a new directory your machine:{' '}
-      <pre className="code-example">{`> mkdir hello-nextjs`}</pre>
+      <pre class="code-example">{`> mkdir hello-nextjs`}</pre>
     </li>
     <li>
       Set it up as a JavaScript package:
-      <pre className="code-example">
+      <pre class="code-example">
 {`> cd hello-nextjs
   > yarn init -y
   `}</pre
@@ -103,29 +103,29 @@ title: How to Deploy a Static Site with Next.js and Netlify
     </li>
     <li>
       Install next, react, and react-dom:
-      <pre className="code-example">{`> yarn add react react-dom next`}</pre>
+      <pre class="code-example">{`> yarn add react react-dom next`}</pre>
     </li>
     <li>
       Add an index page:
-      <pre className="code-example">
+      <pre class="code-example">
 {`> mkdir pages
   > touch pages/index.js
   `}</pre
       >
     </li>
     Add these contents to pages/index.js:
-    <pre className="code-example">{`const Index = props => <h1>Hello, Next.js!</h1>
+    <pre class="code-example">{`const Index = props => <h1>Hello, Next.js!</h1>
 
   export default Index
   `}</pre>
     <li>
       Run next to serve that website!
-      <pre className="code-example">{`> ./node_modules/.bin/next`}</pre>
+      <pre class="code-example">{`> ./node_modules/.bin/next`}</pre>
     </li>
     <li>
       And last, add the export command to your package.json scripts which should leave your
       package.json file looking like this:
-      <pre className="code-example">
+      <pre class="code-example">
 {`{
   "name": "hello-nextjs",
   "version": "1.0.0",

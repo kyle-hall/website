@@ -35,22 +35,22 @@ tags: post
       <p>Here's a quick list of the characteristics of class-based components:</p>
       <ul>
         <li>
-          They are declared using the <span className='inset-code-sample'>class</span> keyword
+          They are declared using the <span class='inset-code-sample'>class</span> keyword
           introduced in the ECMAScript 2015 standard.
         </li>
         <li>
           They extend the React component like so:{' '}
-          <span className='inset-code-sample'>class ZenComponent extends React.Component</span>
+          <span class='inset-code-sample'>class ZenComponent extends React.Component</span>
         </li>
         <li>
           Class components that receive props must define a constructor that takes those props, call
           super with those props or risk inconsistencies with the React framework.
         </li>
         <li>
-          Class-based components also end up using <span className='inset-code-sample'>this</span>
+          Class-based components also end up using <span class='inset-code-sample'>this</span>
           quite a bit, which isn't exactly problematic, but it is a highly misunderstood feature in
           JavaScript. This leads to a lot of headaches when people think it will work exactly this{' '}
-          <span className='inset-code-sample'>this</span> in Java or some other programming
+          <span class='inset-code-sample'>this</span> in Java or some other programming
           language.
         </li>
       </ul>
@@ -60,7 +60,7 @@ tags: post
         make programmers from other languages feel more comfortable when they were forced to use
         JavaScript as they were pushed to be more "fullstack". What you get instead is a feature
         that looks like it does what you need until you start trying to{' '}
-        <span className='inset-code-sample'>typeof</span>
+        <span class='inset-code-sample'>typeof</span>
         or things that rely on a classical inheritance mindset. Javascript is not a lanaguage that
         uses classical inheritance; it uses prototypal inheritance. Classes are just syntatic sugar
         on top of the old function way of creating object in JavaScript. And, thus, I would like to
@@ -104,26 +104,26 @@ tags: post
         components viable for use throughout your entire app. Because they finally give functional
         components a way to have their own local state. They also, after a fashion, give you the
         ability to do the same things you would do in a{' '}
-        <span className='inset-code-sample'>componentDidMount</span>
+        <span class='inset-code-sample'>componentDidMount</span>
         method in a class-based component. That comparison isn't one-to-one, but I haven't done
         enough research - and it's outside of the scope of this introduction - to understand and
         explain how things are different between things like the{' '}
-        <span className='inset-code-sample'>useEffect</span> hook and{' '}
-        <span className='inset-code-sample'>componentDidMount</span>. So, more to come on that in
+        <span class='inset-code-sample'>useEffect</span> hook and{' '}
+        <span class='inset-code-sample'>componentDidMount</span>. So, more to come on that in
         the future.
       </p>
       <p>
         There are many hooks from React. The simplest is{' '}
-        <span className='inset-code-sample'>useState</span>, which I'll be discussing here. React
+        <span class='inset-code-sample'>useState</span>, which I'll be discussing here. React
         also gives you the tools to create custom hooks, which I have not explored yet, so I'll
         leave that for a future post.
       </p>
       <p>
         Alright, on to the code! The next example will show a simple usage of the{' '}
-        <span className='inset-code-sample'>useState</span>
+        <span class='inset-code-sample'>useState</span>
         hook:
       </p>
-      <pre className='code-example'>
+      <pre class='code-example'>
         <code>
           const HookCounter = () => {
             const [count, setCount] = useState(0)
@@ -149,7 +149,7 @@ tags: post
         <li>We've create a functional component, so far so good.</li>
         <li>
           Then we see something that may look a little weird:{' '}
-          <span className='inset-code-sample'>const [count, setCount] = useState(0)</span>
+          <span class='inset-code-sample'>const [count, setCount] = useState(0)</span>
           <p>
             What's going on there? Well, we are deconstructing two objects out of the return value
             of the useState hook. We called useState with 0, and that sets the initial state for

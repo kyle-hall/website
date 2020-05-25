@@ -38,7 +38,7 @@ tags: post
     whether they passed or failed. I feel that this is a very small thing that most developers would
     take for granted. I agree. Just one little problem: I wasn't getting them. Every time I ran my
     tests from the terminal, I got{' '}
-    <span className="inset-code-sample">Build Success</span> if they all passed. And that's it.
+    <span class="inset-code-sample">Build Success</span> if they all passed. And that's it.
     Nothing about which tests ran, how long they took, anything. Odd.
   </p>
   <p>
@@ -56,14 +56,14 @@ tags: post
   </p>
   <ul>
     <li>
-      Run <span className="inset-code-sample">gradle test -i</span> instead of{' '}
-      <span className="inset-code-sample">gradle test</span>. This didn't work for me. All I got was
+      Run <span class="inset-code-sample">gradle test -i</span> instead of{' '}
+      <span class="inset-code-sample">gradle test</span>. This didn't work for me. All I got was
       a list of all the tasks Gradle ran to execute my tests. This was enlightening, but didn't
       solve my problem.
     </li>
     <li>
-      Add the following to your <span className="inset-code-sample">build.gradle</span>:
-      <pre className="code-example">
+      Add the following to your <span class="inset-code-sample">build.gradle</span>:
+      <pre class="code-example">
             <code>
               test {
                 testLogging {
@@ -100,8 +100,8 @@ tags: post
   </p>
   <p>
     Comparing their test configuration to mine, the only difference I saw was that they use{' '}
-    <span className="inset-code-sample">tasks.withType(Test)</span> instead of just{' '}
-    <span className="inset-code-sample">test</span>. I was ready to try anything at that point
+    <span class="inset-code-sample">tasks.withType(Test)</span> instead of just{' '}
+    <span class="inset-code-sample">test</span>. I was ready to try anything at that point
     because I had been trying to make this work for so long.
   </p>
   <p>So, I added it.</p>
@@ -127,7 +127,7 @@ tags: post
   </div>
   <p>
     I re-ran my tests, and all of them were printed out with a neat little{' '}
-    <span className="inset-code-sample">PASSED</span>.
+    <span class="inset-code-sample">PASSED</span>.
   </p>
 </section>
 <section>

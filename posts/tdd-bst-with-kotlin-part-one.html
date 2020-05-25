@@ -72,9 +72,9 @@ tags: post
     project. Now, I like the JVM, and Gradle, so I'll do a separate article explaining more
     about creating new Gradle-based projects in the future. But, that's outside the scope of
     this article, so, for now, here's the
-    <span className='inset-code-sample'>build.gradle</span> file you'll need to get started with
+    <span class='inset-code-sample'>build.gradle</span> file you'll need to get started with
     this project, in case you'd like to code along with me.
-    <pre className='code-example'>
+    <pre class='code-example'>
       <code>
         {`buildscript {
           ext.kotlin_version = '1.2.61'
@@ -96,7 +96,7 @@ tags: post
       apply plugin: 'application'
       apply plugin: 'jacoco'
       
-      mainClassName = 'MainKt'
+      mainclass = 'MainKt'
       
       defaultTasks 'run'
       
@@ -135,7 +135,7 @@ tags: post
   <p>
     Okay, so, to finish the setup, put that build.gradle file at the root of your project
     directory. Then, create a series of nested directories that should end up looking like this:
-    <pre className='code-example'>
+    <pre class='code-example'>
       <code>
         {`/binary-search-tree
           src/
