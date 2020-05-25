@@ -2,6 +2,7 @@ body,
 html {
   padding: 0;
   margin: 0;
+  font-family: Monteserrat, sans-serif;
 }
 
 .blog-container {
@@ -36,15 +37,21 @@ html {
 }
 
 .article-listing {
+  font-size: 2em;
   margin-bottom: 30px;
 }
 
-.article-listing span {
-  font-size: 2em;
+.article-listing__title {
+  margin: 16px 0 0 16px;
 }
 
-.article-listing__span--small {
-  font-size: 1.8em;
+a {
+  text-decoration: none;
+}
+
+.article-listing__date {
+  font-size: 1em;
+  margin: 16px 0 0 16px;
 }
 
 .blog__main-header {
@@ -66,7 +73,7 @@ html {
   line-height: 1.5;
 }
 
-.info-page__header {
+.info-page-container__header {
   font-family: Montserrat, sans-serif;
   font-size: 3.5vw;
 }
@@ -83,7 +90,7 @@ html {
   padding-bottom: 1em;
 }
 
-.post-container__h1--big {
+.post-container h1 {
   font-family: Montserrat, 'sans-serif';
   font-size: 3em;
 }
@@ -133,6 +140,13 @@ html {
   border-radius: 3px;
 }
 
+.header-bar {
+  display: block;
+  background-color: #4f98ca;
+  padding: 10px 0;
+  
+}
+
 .header-bar ul li {
   list-style: none;
 }
@@ -145,11 +159,6 @@ html {
 .nav-bar {
   display: flex;
   justify-content: space-around;
-}
-
-.header-bar {
-  background-color: #4f98ca;
-  padding: 10px 0;
 }
 
 .header-bar a:visited {
