@@ -1,0 +1,32 @@
+body {
+  padding: 0;
+  max-width: 54em;
+  margin: 0 auto;
+
+  background: #333;
+  color: #FFF;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1,
+h2 {
+  color: #FFF;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+a {
+  color: red;
+}
+
+:visited {
+  color: red;
+}
