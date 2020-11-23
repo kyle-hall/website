@@ -2,7 +2,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: Monteserrat, sans-serif;
+  font-family: 'Francois One', sans-serif;
 }
 
 .blog-container {
@@ -12,7 +12,7 @@ html {
   margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
-  font-family: Monteserrat, sans-serif;
+  font-family: 'Francois One', sans-serif;
 }
 
 .footer {
@@ -56,7 +56,7 @@ a {
 
 .blog__main-header {
   text-align: center;
-  font-family: Montserrat;
+  font-family: 'Francois One';
   font-size: 48px;
   padding-top: 80px;
 }
@@ -74,7 +74,7 @@ a {
 }
 
 .info-page-container__header {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Francois One', sans-serif;
   font-size: 3.5vw;
 }
 
@@ -91,20 +91,20 @@ a {
 }
 
 .post-container h1 {
-  font-family: Montserrat, 'sans-serif';
+  font-family: 'Francois One', 'serif';
   font-size: 3em;
 }
 
 .post-container h2,
 .post-container h3 {
-  font-family: Montserrat, 'sans-serif';
+  font-family: 'Francois One', 'serif';
   margin-top: 1em;
   padding-top: 1em;
 }
 
 .post-container p,
 .post-container a {
-  font-family: Sarabun, 'sans-serif';
+  font-family: 'Open Sans', 'sans-serif';
 }
 
 .post-container img {
@@ -144,7 +144,6 @@ a {
   display: block;
   background-color: #4f98ca;
   padding: 10px 0;
-  
 }
 
 .header-bar ul li {
