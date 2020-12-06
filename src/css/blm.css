@@ -1,0 +1,41 @@
+body {
+  padding: 0 24px;
+  max-width: 54em;
+  margin: 0 auto;
+  background: #111;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+body,
+h1,
+h2 {
+  font-family: sans-serif;
+  color: #eee;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  max-width: 75ch;
+}
+
+ul {
+  max-width: 75ch;
+}
+
+a {
+  color: red;
+}
+
+:visited {
+  color: red;
+}
+
+/*# sourceMappingURL=blm.css.map */

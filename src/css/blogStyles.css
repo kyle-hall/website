@@ -2,7 +2,7 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: 'Francois One', sans-serif;
+  font-family: "Francois One", sans-serif;
 }
 
 .blog-container {
@@ -12,7 +12,7 @@ html {
   margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
-  font-family: 'Francois One', sans-serif;
+  font-family: "Francois One", sans-serif;
 }
 
 .footer {
@@ -40,8 +40,11 @@ html {
   font-size: 2em;
   margin-bottom: 30px;
 }
-
 .article-listing__title {
+  margin: 0;
+}
+.article-listing__date {
+  font-size: 1em;
   margin: 16px 0 0 16px;
 }
 
@@ -49,14 +52,9 @@ a {
   text-decoration: none;
 }
 
-.article-listing__date {
-  font-size: 1em;
-  margin: 16px 0 0 16px;
-}
-
 .blog__main-header {
   text-align: center;
-  font-family: 'Francois One';
+  font-family: "Francois One";
   font-size: 48px;
   padding-top: 80px;
 }
@@ -74,7 +72,7 @@ a {
 }
 
 .info-page-container__header {
-  font-family: 'Francois One', sans-serif;
+  font-family: "Francois One", sans-serif;
   font-size: 3.5vw;
 }
 
@@ -91,20 +89,20 @@ a {
 }
 
 .post-container h1 {
-  font-family: 'Francois One', 'serif';
+  font-family: "Francois One", "serif";
   font-size: 3em;
 }
 
 .post-container h2,
 .post-container h3 {
-  font-family: 'Francois One', 'serif';
+  font-family: "Francois One", "serif";
   margin-top: 1em;
   padding-top: 1em;
 }
 
 .post-container p,
 .post-container a {
-  font-family: 'Open Sans', 'sans-serif';
+  font-family: "Open Sans", "sans-serif";
 }
 
 .post-container img {
@@ -121,7 +119,7 @@ a {
   background-color: #1b2a33;
   color: #eee;
   padding: 3px 5px;
-  font-family: 'Courier New', 'sans-serif';
+  font-family: "Courier New", "sans-serif";
   border-radius: 3px;
 }
 
@@ -131,7 +129,7 @@ a {
   padding-left: 15px;
   padding-top: 20px;
   padding-bottom: 20px;
-  font-family: 'Courier New', 'sans-serif';
+  font-family: "Courier New", "sans-serif";
   font-size: 15px;
   border-left-width: 4px;
   border-left-style: solid;
@@ -163,3 +161,5 @@ a {
 .header-bar a:visited {
   color: #effffb;
 }
+
+/*# sourceMappingURL=blogStyles.css.map */

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141920351-1" />
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-141920351-1')
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/css/blogStyles.css' | url }}" />
+    <title>Blog</title>
+  </head>
+  <body>
+    {% include components/nav.html %}
+    <div class="blog-container">{{ content }} {% include components/footer.html %}</div>
+  </body>
+</html>

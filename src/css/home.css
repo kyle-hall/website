@@ -1,0 +1,81 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Francois One", sans-serif;
+  line-height: 1.5;
+  background: linear-gradient(#214657, #1c1e30, #020024);
+  color: white;
+}
+
+.wrapper {
+  height: 100vh;
+  max-width: 54em;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper header {
+  padding: 150px 25px;
+  padding-left: 50px;
+}
+
+.wrapper header h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.wrapper header p {
+  line-height: 1.5;
+  max-width: 75ch;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding-top: 24px;
+}
+
+li {
+  list-style: none;
+  margin-right: 24px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.blm-banner {
+  margin: 0;
+  background-color: #111;
+  color: #eee;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.blm-banner a {
+  display: inline-block;
+  margin-right: 1.8rem;
+}
+
+.blm-banner a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=home.css.map */
