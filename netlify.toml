@@ -2,7 +2,3 @@
   base = "."
   publish = "_site"
   command = "eleventy"
-
-[redirect]
-  from = "/"
-  to = "/blackLivesMatterStatement"
