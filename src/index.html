@@ -1,3 +1,7 @@
+---
+templateEngineOverride: njk,html
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,6 +43,7 @@
         </ul>
       </nav>
       <header>
+        <img src="/assets/img/profile.svg" alt="cartoon avatar of me made at getavataaars.com" />
         <h1>Hi, I'm Kyle Hall</h1>
         <p>
           I am a full-stack web developer of 5 years experience, and I'm working towards my goal of
@@ -47,6 +52,18 @@
           split between learning Vue, CSS Grid, and a11y. Thanks for stopping by!
         </p>
       </header>
+      <main>
+        <h2>Here's the latest from my blog:</h2>
+        <ul>
+          {% for post in collections.posts | latestPosts %}
+          <li class="article-listing">
+            <h3 class="article-listing__title">
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+          </li>
+          {% endfor %}
+        </ul>
+      </main>
     </div>
   </body>
 </html>

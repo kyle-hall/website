@@ -20,16 +20,22 @@ body {
 }
 
 .wrapper {
-  height: 100vh;
   max-width: 54em;
   margin: 0 auto;
-  justify-content: center;
-  align-items: center;
 }
 
 .wrapper header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 150px 25px;
   padding-left: 50px;
+
+  img {
+    height: 250px;
+    width: 250px;
+  }
 }
 
 .wrapper header h1 {
@@ -37,11 +43,23 @@ body {
   text-align: center;
 }
 
+.wrapper h2 {
+  font-size: 3.5rem;
+}
+
+.wrapper h3 {
+  font-size: 2rem;
+}
+
 .wrapper header p {
   line-height: 1.5;
   max-width: 75ch;
   font-size: 1.2rem;
   text-align: center;
+}
+
+.wrapper nav {
+  align-self: flex-end;
 }
 
 nav ul {
@@ -59,6 +77,20 @@ li {
 a {
   color: white;
   text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+.wrapper main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  ul {
+    margin-left: 32px;
+  }
 }
 
 .blm-banner {
