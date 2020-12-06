@@ -56,8 +56,26 @@ li {
   margin-right: 24px;
 }
 
-/* watch the jason lengstorff thing with rachel andrew to get the hover on these anchors right */
 a {
   color: white;
   text-decoration: none;
+}
+
+.blm-banner {
+  margin: 0;
+  background-color: #111;
+  color: #eee;
+  padding: 16px 0;
+  text-align: center;
+
+  font-size: 1.5rem;
+}
+
+.blm-banner a {
+  display: inline-block;
+  margin-right: 1.8rem;
+}
+
+.blm-banner a:hover {
+  text-decoration: underline;
 }
