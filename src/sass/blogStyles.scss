@@ -2,17 +2,16 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: Monteserrat, sans-serif;
+  font-family: 'Francois One', sans-serif;
+
+  background: linear-gradient(#214657, #1c1e30, #020024);
+  color: white;
 }
 
 .blog-container {
   width: 92%;
-  max-width: 50em;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  font-family: Monteserrat, sans-serif;
+  max-width: 54em;
+  margin: 0 auto;
 }
 
 .footer {
@@ -36,29 +35,42 @@ html {
   width: 100px;
 }
 
+svg {
+  stroke: white;
+  fill: white;
+}
+
 .article-listing {
   font-size: 2em;
   margin-bottom: 30px;
-}
 
-.article-listing__title {
-  margin: 16px 0 0 16px;
+  a {
+    color: white;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__date {
+    font-size: 1em;
+    margin: 16px 0 0 16px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 a {
   text-decoration: none;
 }
 
-.article-listing__date {
-  font-size: 1em;
-  margin: 16px 0 0 16px;
-}
-
 .blog__main-header {
-  text-align: center;
-  font-family: Montserrat;
+  font-family: 'Francois One';
   font-size: 48px;
   padding-top: 80px;
+  padding-left: 24px;
 }
 
 .blog__article-list {
@@ -74,7 +86,7 @@ a {
 }
 
 .info-page-container__header {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Francois One', sans-serif;
   font-size: 3.5vw;
 }
 
@@ -86,25 +98,25 @@ a {
 
 .post-container {
   line-height: 1.8;
-  color: #333;
+  color: white;
   padding-bottom: 1em;
 }
 
 .post-container h1 {
-  font-family: Montserrat, 'sans-serif';
+  font-family: 'Francois One', 'serif';
   font-size: 3em;
 }
 
 .post-container h2,
 .post-container h3 {
-  font-family: Montserrat, 'sans-serif';
+  font-family: 'Francois One', 'serif';
   margin-top: 1em;
   padding-top: 1em;
 }
 
 .post-container p,
 .post-container a {
-  font-family: Sarabun, 'sans-serif';
+  font-family: 'Open Sans', 'sans-serif';
 }
 
 .post-container img {
@@ -142,9 +154,7 @@ a {
 
 .header-bar {
   display: block;
-  background-color: #4f98ca;
   padding: 10px 0;
-  
 }
 
 .header-bar ul li {
@@ -152,8 +162,11 @@ a {
 }
 
 .header-bar a {
-  text-decoration: none;
   font-size: 1.8em;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .nav-bar {

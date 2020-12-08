@@ -1,0 +1,69 @@
+---
+templateEngineOverride: njk,html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyle Hall - Web Developer</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141920351-1" />
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-141920351-1')
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Sarabun" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ '/css/home.css' | url }}" />
+  </head>
+  <body>
+    <p class="blm-banner">
+      <a href="blm-statement">I support BLM</a>
+      <a href="https://blacklivesmatter.com">Black Lives Matter</a>
+      <a href="https://eji.org">Equal Justice Initiative</a>
+    </p>
+    <div class="wrapper">
+      <nav>
+        <ul>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/resume">Resume</a>
+          </li>
+        </ul>
+      </nav>
+      <header>
+        <img src="/assets/img/profile.svg" alt="cartoon avatar of me made at getavataaars.com" />
+        <h1>Hi, I'm Kyle Hall</h1>
+        <p>
+          I am a full-stack web developer of 5 years experience, and I'm working towards my goal of
+          becoming a UX Engineer. I have a blog here where I write about a lot of different things,
+          including JavaScript, React, CSS, and some developer life topics. My current focus is
+          split between learning Vue, CSS Grid, and a11y. Thanks for stopping by!
+        </p>
+      </header>
+      <main>
+        <h2>Here's the latest from my blog:</h2>
+        <ul>
+          {% for post in collections.posts | latestPosts %}
+          <li class="article-listing">
+            <h3 class="article-listing__title">
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+          </li>
+          {% endfor %}
+        </ul>
+      </main>
+    </div>
+  </body>
+</html>
