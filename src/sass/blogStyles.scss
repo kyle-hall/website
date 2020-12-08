@@ -3,16 +3,15 @@ html {
   padding: 0;
   margin: 0;
   font-family: 'Francois One', sans-serif;
+
+  background: linear-gradient(#214657, #1c1e30, #020024);
+  color: white;
 }
 
 .blog-container {
   width: 92%;
-  max-width: 50em;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  font-family: 'Francois One', sans-serif;
+  max-width: 54em;
+  margin: 0 auto;
 }
 
 .footer {
@@ -36,9 +35,18 @@ html {
   width: 100px;
 }
 
+svg {
+  stroke: white;
+  fill: white;
+}
+
 .article-listing {
   font-size: 2em;
   margin-bottom: 30px;
+
+  a {
+    color: white;
+  }
 
   &__title {
     margin: 0;
@@ -48,6 +56,10 @@ html {
     font-size: 1em;
     margin: 16px 0 0 16px;
   }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 a {
@@ -55,10 +67,10 @@ a {
 }
 
 .blog__main-header {
-  text-align: center;
   font-family: 'Francois One';
   font-size: 48px;
   padding-top: 80px;
+  padding-left: 24px;
 }
 
 .blog__article-list {
@@ -86,7 +98,7 @@ a {
 
 .post-container {
   line-height: 1.8;
-  color: #333;
+  color: white;
   padding-bottom: 1em;
 }
 
@@ -142,7 +154,6 @@ a {
 
 .header-bar {
   display: block;
-  background-color: #4f98ca;
   padding: 10px 0;
 }
 
@@ -151,8 +162,11 @@ a {
 }
 
 .header-bar a {
-  text-decoration: none;
   font-size: 1.8em;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .nav-bar {
