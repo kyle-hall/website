@@ -3,6 +3,7 @@ html {
   padding: 0;
   margin: 0;
   font-family: 'Francois One', sans-serif;
+  font-size: 18px;
 
   background: linear-gradient(#214657, #1c1e30, #020024);
   color: white;
@@ -130,7 +131,7 @@ a {
 }
 
 .inset-code-sample {
-  background-color: #1b2a33;
+  background-color: #152129;
   color: #eee;
   padding: 3px 5px;
   font-family: 'Courier New', 'sans-serif';
@@ -140,15 +141,20 @@ a {
 .code-example {
   background-color: #1b2a33;
   color: #eee;
+
   padding-left: 15px;
   padding-top: 20px;
+
   font-family: 'Courier New', 'sans-serif';
   font-size: 16px;
+  line-height: 1.4;
+
   border-left-width: 7px;
   border-left-style: solid;
   border-left-color: #04b9b2;
-  line-height: 1.4;
   border-radius: 3px;
+
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.3);
 }
 
 .header-bar {
