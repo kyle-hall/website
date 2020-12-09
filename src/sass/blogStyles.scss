@@ -36,6 +36,15 @@ html {
   width: 100px;
 }
 
+a {
+  color: white;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 svg {
   stroke: white;
   fill: white;
@@ -61,10 +70,6 @@ svg {
   &:hover {
     text-decoration: underline;
   }
-}
-
-a {
-  text-decoration: none;
 }
 
 .blog__main-header {
@@ -168,6 +173,8 @@ a {
 
 .header-bar a {
   font-size: 1.8em;
+
+  text-decoration: none;
 
   &:hover {
     text-decoration: underline;
