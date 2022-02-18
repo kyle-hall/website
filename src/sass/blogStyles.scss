@@ -2,11 +2,20 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: 'Francois One', sans-serif;
+  font-family: sans-serif;
   font-size: 18px;
 
   background: linear-gradient(#214657, #1c1e30, #020024);
   color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .blog-container {
@@ -15,39 +24,35 @@ html {
   margin: 0 auto;
 }
 
-.footer {
+footer {
   width: 75%;
   height: 200px;
   margin: 0 auto;
   padding-top: 100;
-}
 
-.link-container {
-  height: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+  .link-container {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-.footer__a {
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  width: 100px;
-}
+    a {
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      width: 100px;
 
-svg {
-  stroke: white;
-  fill: white;
+      svg {
+        stroke: white;
+        fill: white;
+      }
+    }
+  }
 }
 
 .article-listing {
   font-size: 2em;
   margin-bottom: 30px;
-
-  a {
-    color: white;
-  }
 
   &__title {
     margin: 0;
@@ -57,77 +62,70 @@ svg {
     font-size: 1em;
     margin: 16px 0 0 16px;
   }
+}
 
-  &:hover {
-    text-decoration: underline;
+.blog {
+  &__main-header {
+    font-size: 48px;
+    padding-top: 80px;
+    padding-left: 24px;
   }
-}
 
-a {
-  text-decoration: none;
-}
-
-.blog__main-header {
-  font-family: 'Francois One';
-  font-size: 48px;
-  padding-top: 80px;
-  padding-left: 24px;
-}
-
-.blog__article-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 75px;
+  &__article-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 75px;
+  }
 }
 
 .info-page-container {
   margin-top: 80px;
   line-height: 1.5;
-}
 
-.info-page-container__header {
-  font-family: 'Francois One', sans-serif;
-  font-size: 3.5vw;
-}
+  &__header {
+    font-family: 'Francois One', sans-serif;
+    font-size: 3.5vw;
+  }
 
-.info-page-container p,
-.info-page-container ul {
-  font-family: Sarabun, sans-serif;
-  font-size: 2em;
+  .info-page-container p,
+  .info-page-container ul {
+    font-family: Sarabun, sans-serif;
+    font-size: 2em;
+  }
 }
 
 .post-container {
   line-height: 1.8;
   color: white;
   padding-bottom: 1em;
-}
 
-.post-container h1 {
-  font-family: 'Francois One', 'serif';
-  font-size: 3em;
-}
+  h1 {
+    font-family: 'Francois One', 'serif';
+    font-size: 3em;
+  }
 
-.post-container h2,
-.post-container h3 {
-  font-family: 'Francois One', 'serif';
-  margin-top: 1em;
-  padding-top: 1em;
-}
+  h2,
+  h3 {
+    font-family: 'Francois One', 'serif';
+    margin-top: 1em;
+    padding-top: 1em;
+  }
 
-.post-container p,
-.post-container a {
-  font-family: 'Open Sans', 'sans-serif';
-}
+  p,
+  a {
+    font-family: 'Open Sans', 'sans-serif';
+  }
 
-.post-container img {
-  display: block;
-  height: 500px;
-  width: 800px;
-}
+  img {
+    display: block;
+    height: 500px;
+    width: 800px;
+  }
 
-.post-container li {
-  margin-bottom: 15px;
+  li {
+    margin-bottom: 15px;
+  }
 }
 
 .inset-code-sample {
@@ -160,25 +158,25 @@ a {
 .header-bar {
   display: block;
   padding: 10px 0;
-}
 
-.header-bar ul li {
-  list-style: none;
-}
+  ul li {
+    list-style: none;
+  }
 
-.header-bar a {
-  font-size: 1.8em;
+  a {
+    font-size: 1.8em;
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: #effffb;
+    }
   }
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-around;
-}
-
-.header-bar a:visited {
-  color: #effffb;
 }
