@@ -1,0 +1,290 @@
+---
+title: Making an Audio Visualiser, Part 1
+date: 2022-02-22
+---
+
+<header>
+  <h1>Making an Audio Visualiser, Part 1</h1>
+  <p>
+    I've been looking for a fun side-project to work that's just for me and lets me build stuff just
+    for the fun of it. The WebAudio API seems fun, so I'm going to be building a couple things with
+    it and documenting the process here in a few blog articles. The first of these fun audio apps is
+    an audio visualiser.
+  </p>
+</header>
+<section>
+  <h2>Initial Thoughts and Research</h2>
+  <p>
+    I've never built anything with the WebAudio API before, so I had some research to do. As I went
+    along, I referenced a bunch of MDN articles, including a tutorial, but I was trying not to rely
+    on it, too much. I went into this trying to explore the API and become more familiar with it,
+    overall, so I'm not necessarily just looking to build this thing and then move on.
+  </p>
+  <p>
+    I'm really leaning into following my curiousity on this. If I'm doing it with my (limited) spare
+    time, I really want to enjoy it. And because I want to build more than just this one app using
+    this API, I want to understand more about it than just the bare minimum required to do what I'm
+    doing right now.
+  </p>
+  <p>
+    As for the visualiser, I wanted to start with a basic line to represent the audio and then
+    try other variations of visualisations. Bar and wave visualisations are pretty common, so I'd
+    like to give them a shot. Eventually, I'd like to tinker with this enough to do more complex
+    visualisations like the overlay on many a <a href="https://www.youtube.com/channel/UCDVKYPXwdYUQfgA05CkyFSg">GameChops</a>
+    Youtube video. My personal favorite is the <a href="https://www.youtube.com/watch?v=GdzrrWA8e7A">Zelda and Chill</a> video.
+  </p>
+  <p>
+    I also set a goal for myself on this first slice. I was working for a couple of hours over the weekend,
+    and I wanted to have something to show for the time spent and not just a bunch of code that didn't
+    work. I decided that, at the end of the session, I wanted to be able to log out all of the data coming from the
+    audio to the console. I thought this would prove I could set up the code to read from a music file
+    correctly without requiring too much time. So, that's what I'm driving towards, here.
+  </p>
+</section>
+<section>
+  <h2>Setting Up</h2>
+  <p>
+    In keeping with the theme of trying new things, I started this project in <a href="https://svelte.dev/">Svelte</a>.
+    Svelte is pretty interesting, so I thought I'd give it a go. I didn't expect to learn a whole bunch
+    about it given - what I thought was - the relative simplicity of the app, but as you'll see,
+    I picked up a couple things in just this first slice that were pretty helpful.
+  </p>
+  <p>
+    After following the getting started guide on Svelte's website, I walked through enough of the
+    WebAudio tutorial on MDN to get an audio element <code>&lt;audio&gt;</code>, an audio context,
+    and a destination set up. And this might be a good time to define a few things.
+  </p>
+  <p>
+    <dl>
+      <dt>Audio Context</dt>
+      <dd>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext">MDN Definition</a>
+      </dd>
+      <dd>
+        Basically, all the audio code lives within or comes from the context. An instantianted
+        context provides factory methods for creating a bunch of different types of AudioNode
+        objects.
+      </dd>
+      <dt>Audio Node</dt>
+      <dd>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioNode">MDN Definition</a>
+      </dd>
+      <dd>
+        Peforms basic audio operations - there are a lot of different kinds, from distortion
+        to gain to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode">BiquadFilterNode</a>;
+        no idea what that one does, yet.
+      </dd>
+      <dt>Audio Routing Graph</dt>
+      <dd>
+        Representation of a bunch of audio nodes connected together. Basically, for this whole
+        thing to work, there's an input (which can be a lot of things, ranging from your microphone
+        to an <code>&lt;audio&gt;</code> on your page), a bunch of effects (like that biquad filter up there),
+        and a destination, usually the speakers or headphones on your machine. 
+      </dd>
+    </dl>
+  </p>
+  <p>
+    With that all set up, I had some code that looked something like this:
+  </p>
+  <pre>
+    <code>
+  const audioElement = document.querySelector('audio')
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+    </code>
+  </pre>
+</section>
+<section>
+  <h2>Building the Visualisation</h2>
+  <p>
+    From there, I needed to do some poking around to find out how to get the readings from the
+    audio element to the log. I found the AnalyserNode, which looks like basically a pass-through
+    audio node, except it can access data from each sample that passes through. That information
+    is exactly what I needed to create the visualisation. Adding that to my existing code gave
+    me this:
+  </p>
+  <pre>
+    <code>
+  // ...existing code
+
+  const analyserNode = audioContext.createAnalyser()
+  analyserNode.fftSize = 2048
+  analyserNode.maxDecibels = -25
+  analyserNode.minDecibels = -60
+  analyserNode.smoothingTimeConstant = 0.5
+
+  const track = audioContext.createMediaElementSource(audioElement)
+
+  track.connect(analyserNode)
+  analyserNode.connect(audioContext.destination)
+    </code>
+  </pre>
+  <p>
+    Here, I ran into some trouble because of my lack of Svelte knowledge. I got an error about the audio
+    element not existing, which was confusing, as my Svelte component looked like this
+  </p>
+    <pre>
+      <code>
+  {{ '<script>
+    const audioElement = document.querySelector("audio")
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+
+    const analyserNode = audioContext.createAnalyser()
+    analyserNode.fftSize = 2048
+    analyserNode.maxDecibels = -25
+    analyserNode.minDecibels = -60
+    analyserNode.smoothingTimeConstant = 0.5
+
+    const track = audioContext.createMediaElementSource(audioElement)
+
+    track.connect(analyserNode)
+    analyserNode.connect(audioContext.destination)
+  </script>
+
+  <div class="visualiser-container">
+    <div class="visualiser">
+      <h2>Visualiser</h2>
+      <audio src="whereTheWavesTakeUs.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <style>
+    .visualiser-container {
+      display: grid;
+      place-content: center;
+
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .visualiser {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>' | escape }}
+    </code>
+  </pre>
+  <p>
+    And I expected that to work. But after some digging, it seems Svelte doesn't quite
+    work like that out of the box. I needed to bind the root to the component and write
+    an <code>onMount</code> function before things worked the way I expected. That looked
+    like this:
+  </p>
+  <pre>
+      <code>
+  {{ 'import { onMount } from "svelte";
+
+  let root;
+
+  onMount(() => {
+    const audioElement = document.querySelector("audio")
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+
+    const analyserNode = audioContext.createAnalyser()
+    analyserNode.fftSize = 2048
+    analyserNode.maxDecibels = -25
+    analyserNode.minDecibels = -60
+    analyserNode.smoothingTimeConstant = 0.5
+
+    const track = audioContext.createMediaElementSource(audioElement)
+
+    track.connect(analyserNode)
+    analyserNode.connect(audioContext.destination)
+
+    const bufferLength = analyserNode.frequencyBinCount
+    const dataArray = new Uint8Array(bufferLength)
+    analyserNode.getByteTimeDomainData(dataArray)
+
+    const canvas = document.querySelector("#oscilloscope");
+    const canvasCtx = canvas.getContext("2d");
+
+    // draw an oscilloscope of the current audio source
+    function draw() {
+      requestAnimationFrame(draw);
+
+      analyserNode.getByteTimeDomainData(dataArray);
+
+      canvasCtx.fillStyle = "rgb(200, 200, 200)";
+      canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = "rgb(256, 0, 0)";
+
+      canvasCtx.beginPath();
+
+      var sliceWidth = canvas.width * 1.0 / bufferLength;
+      var x = 0;
+
+      for (var i = 0; i < bufferLength; i++) {
+        var v = dataArray[i] / 128.0;
+        var y = v * canvas.height / 2;
+
+        if (i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height / 2);
+      canvasCtx.stroke();
+    }
+
+    draw();
+  });' | escape }}
+    </code>
+  </pre>
+  <p>
+    I also changed my goal at this point to actually seeing the visualisation. I found
+    the above example drawing function in the MDN tutorial, and decided to run with it
+    to see what I could get done. This was pretty close, as it turned out, but I wasn't
+    getting any data. The draw definitely worked, because I saw the demo on MDN. But all
+    I got was a flat line.
+  </p>
+  <p>
+    Being unfamiliar with the <code>&lt;audio&gt;</code> element, overall, I did some more
+    research. Ultimately, I rewrote the template of my component to include a <code>&lt;source&gt;</code>
+    element nested inside the <code>&lt;audio&gt;</code>. Then, I put the path to my music file on that
+    instead of the <code>&lt;audio&gt;</code> element which worked.
+  </p>
+    <pre>
+      <code>
+  {{ '<div bind:this={root} class="visualiser-container">
+    <div class="visualiser">
+      <h2>Visualiser</h2>
+      <canvas id="oscilloscope"></canvas>
+      <audio controls>
+        <source src="whereTheWavesTakeUs.mp3" type="audio/mpeg">
+      </audio>
+      </div>
+  </div>' | escape }}
+    </code>
+  </pre>
+  <p>
+    I'm still not sure why that worked, really. Adding the controls was helpful, because I could
+    verify the music was playing. But, the path to my music file didn't change, so I thought just
+    the <code>&lt;audio&gt;</code> element would have worked. My current hypothesis is that because
+    my file was local and not hosted somewhere, that made a different. I'm going to look into that,
+    but if you know why that might have worked, please let me know.
+  </p>
+</section>
+<section>
+  <h2>Success!</h2>
+  <p>
+    With that last change, I had my visualisation! I pushed everything and deployed it on Netlify,
+    so you can check it out for yourself. I love Netlify's project names, so this one is officially
+    code-named <a href="https://festive-panini-717f77.netlify.app/">Festive Panini</a>.
+  </p>
+  <p>
+    Overall, I think this was a good first slice of the project. The visualisation itself
+    certainly needs a lot of work - it is choppy and laggy - but it works and exists, so I'm
+    pretty happy with it.
+  </p>
+  <p>
+    Thanks for joining me in part one. I'm going to be fairly busy on weekends in March, so
+    I'll have to try to work on this during the week if I have the bandwidth. Until the next
+    entry, thank you for reading!
+  </p>
+</section>
