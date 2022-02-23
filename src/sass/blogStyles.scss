@@ -10,11 +10,11 @@ html {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: solid underline 2px;
   color: white;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: solid underline 4px;
   }
 }
 
@@ -179,4 +179,23 @@ footer {
 .nav-bar {
   display: flex;
   justify-content: space-around;
+}
+
+dd {
+  display: list-item;
+  list-style-type: disc;
+}
+
+pre {
+  background-color: #1b2a33;
+  color: #eee;
+
+  font-family: 'Courier New', 'sans-serif';
+  font-size: 16px;
+  line-height: 1.4;
+
+  border-left-width: 7px;
+  border-left-style: solid;
+  border-left-color: #04b9b2;
+  border-radius: 3px;
 }
